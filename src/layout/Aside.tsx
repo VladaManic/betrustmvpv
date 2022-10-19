@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 // Assets
 import betrustLogo from '../assets/img/betrust-logo.svg';
@@ -12,10 +12,10 @@ const Aside = () => {
 		<nav className="main-navigation">
 			<BetrustLogo src={betrustLogo} alt="Logo" />
 			<ul>
-				<li><Link to='/'>In Play</Link></li>
-				<li><Link to='/pre-match'>Pre-Match</Link></li>
-				<li><Link to='/my-bets'>My Bets</Link></li>
-				<li><Link to='/btr-excange'>BTR Excange</Link></li>
+				<li><NavLink to='/'>In Play</NavLink></li>
+				<li><NavLink to='/pre-match'>Pre-Match</NavLink></li>
+				<li><NavLink to='/my-bets'>My Bets</NavLink></li>
+				<li><NavLink to='/btr-excange'>BTR Excange</NavLink></li>
 			</ul>
 		</nav>
 	)
