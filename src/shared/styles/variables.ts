@@ -4,6 +4,8 @@ export const color = {
 	headerBg: '#283040',
 	mainWhite: '#F9F9F9',
 	primaryBlue: '#0071F5',
+	secondaryBlue: '#31B5FF',
+	asideText: '#7289BB',
 }
 
 const size = {
