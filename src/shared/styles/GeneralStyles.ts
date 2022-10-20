@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, keyframes } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     html,
@@ -13,6 +13,28 @@ export default createGlobalStyle`
     body {
         height: 100%;
         font-size: 100%;
-		}
+    }
+
+    .App {
+        display: flex;
+    }
+
+    h1,
+    h2,
+    p {
+        margin: 0;
+    }
+
+    button {
+        border: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 `;
 

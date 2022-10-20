@@ -1,17 +1,18 @@
 import React from 'react';
-import './App.css';
 import { Routes, Route } from 'react-router-dom'
+import GeneralStyles from './shared/styles/GeneralStyles';
 
 import Aside from './layout/Aside'
 import Header from './layout/Header'
 import InPlay from './pages/InPlay'
 import BTRExcange from './pages/BTRExcange'
 import MyBets from './pages/MyBets'
-import PreMatch from './pages/PreMatch'
+import PreMatch from './pages/PreMatch/PreMatch'
 
 function App() {
   return (
     <div className="App">
+      <GeneralStyles/>
       <Aside />
       <div className="content">
         <Header />

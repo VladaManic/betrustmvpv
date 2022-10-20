@@ -1,10 +1,10 @@
 import React from 'react'
 
 // Assets
-import walletIcon from '../../assets/img/wallet-icon.svg';
+import walletIcon from '../../../assets/img/wallet-icon.svg';
 
 // Styles
-import { WalletIcon } from './connectionBtn';
+import { WalletIcon } from './style';
 
 const ConnectionBtn = () => {
 	return (

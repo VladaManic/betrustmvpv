@@ -1,10 +1,10 @@
 import React from 'react'
 
 // Assets
-import balanceIcon from '../../assets/img/balance-icon.svg';
+import balanceIcon from '../../../assets/img/balance-icon.svg';
 
 // Styles
-import { BalanceIcon } from './balance';
+import { BalanceIcon } from './style';
 
 const Balance = () => {
 	return (

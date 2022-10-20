@@ -1,11 +1,11 @@
 import React from 'react'
 
 // Assets
-import notificationBell from '../../assets/img/bell.svg';
-import notificationNumber from '../../assets/img/notification.svg';
+import notificationBell from '../../../assets/img/bell.svg';
+import notificationNumber from '../../../assets/img/notification.svg';
 
 // Styles
-import { NotificationBell, NotificationNumber } from './notifications';
+import { NotificationBell, NotificationNumber } from './style';
 
 const Notifications = () => {
 	return (

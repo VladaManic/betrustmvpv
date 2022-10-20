@@ -2,10 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 // Assets
-import betrustLogo from '../assets/img/betrust-logo.svg';
+import betrustLogo from '../../assets/img/betrust-logo.svg';
 
 // Styles
-import { Sidebar, BetrustLogo } from './aside';
+import { Sidebar, BetrustLogo } from './style';
 
 const Aside = () => {
 	return (
