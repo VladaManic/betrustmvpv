@@ -4,14 +4,14 @@ import React from 'react'
 import walletIcon from '../../../assets/img/wallet-icon.svg';
 
 // Styles
-import { WalletIcon } from './style';
+import { ConnectionWrap, WalletIcon } from './style';
 
 const ConnectionBtn = () => {
 	return (
-		<div>
+		<ConnectionWrap>
 			<WalletIcon src={ walletIcon } alt="Wallet icon" />
 			<p>0x7b...67b85f</p>
-		</div>
+		</ConnectionWrap>
 	)
 }
 

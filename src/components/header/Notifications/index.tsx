@@ -5,14 +5,16 @@ import notificationBell from '../../../assets/img/bell.svg';
 import notificationNumber from '../../../assets/img/notification.svg';
 
 // Styles
-import { NotificationBell, NotificationNumber } from './style';
+import { NotificationWrap, NotificationBell, NotificationNumber } from './style';
 
 const Notifications = () => {
 	return (
-		<div>
-			<NotificationBell src={ notificationBell } alt="Notification bell" />
-			<NotificationNumber src={ notificationNumber } alt="Notification number" />
-		</div>
+		<NotificationWrap>
+			<div className="notificationInner">
+				<NotificationBell src={ notificationBell } alt="Notification bell" />
+				<NotificationNumber src={ notificationNumber } alt="Notification number" />
+			</div>
+		</NotificationWrap>
 	)
 }
 

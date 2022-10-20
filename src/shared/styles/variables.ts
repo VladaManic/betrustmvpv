@@ -3,6 +3,7 @@ export const color = {
 	asideBg: '#222834',
 	headerBg: '#283040',
 	mainWhite: '#F9F9F9',
+	primaryBlue: '#0071F5',
 }
 
 const size = {
