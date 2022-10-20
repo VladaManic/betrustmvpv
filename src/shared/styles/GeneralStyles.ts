@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { color } from './variables'
 
 export default createGlobalStyle`
     html,
@@ -13,10 +14,17 @@ export default createGlobalStyle`
     body {
         height: 100%;
         font-size: 100%;
+        background-color: ${color.bgBlack};
+        font-family: 'Axiforma';
+        color: ${color.mainWhite};
     }
 
     .App {
         display: flex;
+    }
+
+    .content {
+        width: 100%;
     }
 
     h1,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import GeneralStyles from './shared/styles/GeneralStyles';
+import GlobalFonts from './assets/fonts/fonts';
 
 import Aside from './layout/Aside'
 import Header from './layout/Header'
@@ -12,7 +13,8 @@ import PreMatch from './pages/PreMatch/PreMatch'
 function App() {
   return (
     <div className="App">
-      <GeneralStyles/>
+      <GeneralStyles />
+      <GlobalFonts />
       <Aside />
       <div className="content">
         <Header />

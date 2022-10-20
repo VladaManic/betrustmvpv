@@ -4,12 +4,12 @@ import React from 'react'
 import balanceIcon from '../../../assets/img/balance-icon.svg';
 
 // Styles
-import { BalanceIcon } from './style';
+import { BalanceIcon, BalanceParagraph } from './style';
 
 const Balance = () => {
 	return (
 		<div>
-			<p>BalanceL 150,00 BTR</p>
+			<BalanceParagraph>Balance: 150,00 BTR</BalanceParagraph>
 			<BalanceIcon src={ balanceIcon } alt="Balance icon" />
 		</div>
 	)

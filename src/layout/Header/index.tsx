@@ -1,16 +1,19 @@
 import React from 'react'
 
+// Styles
+import { HeaderWrap } from './style';
+
 import Balance from '../../components/header/Balance'
 import ConnectionBtn from '../../components/header/ConnectionBtn'
 import Notifications from '../../components/header/Notifications'
 
 const header = () => {
 	return (
-		<div className="header">
+		<HeaderWrap>
 			<Balance />
 			<ConnectionBtn />
 			<Notifications />
-		</div>
+		</HeaderWrap>
 	)
 }
 
