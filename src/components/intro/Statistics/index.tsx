@@ -11,12 +11,6 @@ import cornerIcon from '../../../assets/img/corner.svg';
 import { YellowCard, RedCard, CornerIcon } from './style';
 
 const Statistics = () => {
-	// const clickHandler = () => {
-	// 	console.log(store.sportData[0].region[0].competition[0].game[0].team1_name);
-	// 	console.log(store.sportData[0].region[0].competition[0].game[0].team2_name);
-	// 	console.log(store.sportData[0].region[0].competition[0].game[0].info.current_game_time);
-	// }
-
 	return (
 		<div>
 			<table>
@@ -47,7 +41,6 @@ const Statistics = () => {
 					</tr>
 				</tbody>
 			</table>
-			{/* <button onClick = { clickHandler }>Click</button> */}
 		</div>
 	)
 }
