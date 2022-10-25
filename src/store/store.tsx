@@ -23,7 +23,7 @@ class Store {
 	// 	title: "Nulla ornare",
 	// 	text: "Nulla ornare arcu finibus metus suscipit, ac tempus justo hendrerit."
 	// }];
-	sportData: {}[] = [];
+	sportData: any[] = [];
 
 	constructor(){
 		makeAutoObservable(this)
