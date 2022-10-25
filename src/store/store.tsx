@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeAutoObservable, observable, toJS } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 // interface Todo {
 // 	id: number,
