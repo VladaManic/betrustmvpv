@@ -44,5 +44,16 @@ export default createGlobalStyle`
         max-width: 100%;
         height: auto;
     }
+
+    .breadcrumb-link {
+        text-decoration: none;
+        transition: opacity 0.25s;
+
+        &:hover {
+            text-decoration: none;
+            opacity: 0.7;
+        }
+    }
 `;
+
 
