@@ -11,28 +11,30 @@ import cornerIcon from '../../../assets/img/corner.svg';
 import { StatisticsWrap, YellowCard, RedCard, CornerIcon } from './style';
 
 const Statistics = () => {
+	const game = store.sportData[0].region[0].competition[0].game[0];
+
 	return (
 		<StatisticsWrap>
 			<table>
 				<tbody>
 					<tr>
-						<td>{store.sportData[0].region[0].competition[0].game[0].team1_name}</td>
-						<td>{store.sportData[0].region[0].competition[0].game[0].stats.score_set1.team1_value}</td>
-						<td className="text-focus">{store.sportData[0].region[0].competition[0].game[0].stats.score_set2.team1_value}</td>
-						<td>{store.sportData[0].region[0].competition[0].game[0].stats.foul.team1_value}</td>
-						<td>{store.sportData[0].region[0].competition[0].game[0].stats.red_card.team1_value}</td>
-						<td>{store.sportData[0].region[0].competition[0].game[0].stats.corner.team1_value}</td>
+						<td>{game.team1_name}</td>
+						<td>{game.stats.score_set1.team1_value}</td>
+						<td className="text-focus">{game.stats.score_set2.team1_value}</td>
+						<td>{game.stats.foul.team1_value}</td>
+						<td>{game.stats.red_card.team1_value}</td>
+						<td>{game.stats.corner.team1_value}</td>
 					</tr>
 					<tr>
-						<td>{store.sportData[0].region[0].competition[0].game[0].team2_name}</td>
-						<td>{store.sportData[0].region[0].competition[0].game[0].stats.score_set2.team2_value}</td>
-						<td className="text-focus">{store.sportData[0].region[0].competition[0].game[0].stats.score_set2.team2_value}</td>
-						<td>{store.sportData[0].region[0].competition[0].game[0].stats.foul.team2_value}</td>
-						<td>{store.sportData[0].region[0].competition[0].game[0].stats.red_card.team2_value}</td>
-						<td>{store.sportData[0].region[0].competition[0].game[0].stats.corner.team2_value}</td>
+						<td>{game.team2_name}</td>
+						<td>{game.stats.score_set2.team2_value}</td>
+						<td className="text-focus">{game.stats.score_set2.team2_value}</td>
+						<td>{game.stats.foul.team2_value}</td>
+						<td>{game.stats.red_card.team2_value}</td>
+						<td>{game.stats.corner.team2_value}</td>
 					</tr>
 					<tr>
-						<td className="text-focus">{store.sportData[0].region[0].competition[0].game[0].info.current_game_time}'</td>
+						<td className="text-focus">{game.info.current_game_time}'</td>
 						<td className="text-grey">R</td>
 						<td className="text-grey">HT</td>
 						<td><YellowCard src={ yellowCard } alt="Yellow card icon" /></td>

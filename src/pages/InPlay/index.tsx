@@ -3,6 +3,7 @@ import { observer } from "mobx-react"
 
 import Breadcrumb from '../../components/intro/Breadcrumb'
 import Intro from '../../layout/Intro'
+import Filter from '../../layout/Filter'
 
 const InPlay = () => {
 
@@ -13,6 +14,7 @@ const InPlay = () => {
 			))} */}
 			<Breadcrumb />
 			<Intro />
+			<Filter />
 		</div>
 	)
 }
