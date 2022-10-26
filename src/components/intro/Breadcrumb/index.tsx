@@ -4,14 +4,14 @@ import React from 'react'
 import arrowLeft from '../../../assets/img/arrow-left.svg';
 
 // Styles
-import { ArrowLeft } from './style';
+import { BreadcrumbWrap, ArrowLeft } from './style';
 
 const Breadcrumb = () => {
 	return (
-		<div>
+		<BreadcrumbWrap>
 			<ArrowLeft src={ arrowLeft } alt="Arrow left" />
-			<p>Pre-Match - Football</p>
-		</div>
+			<p>In Play - Football</p>
+		</BreadcrumbWrap>
 	)
 }
 
