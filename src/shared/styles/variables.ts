@@ -9,6 +9,7 @@ export const color = {
 	breadcrumbGrey: '#B4B4B4',
 	statisticsBg: 'rgba(19, 19, 19, 0.6)',
 	yellowText: '#F6CF41',
+	filterInactive: '#7289BB'
 }
 
 const size = {

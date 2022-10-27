@@ -2,6 +2,7 @@ import styled, {  } from 'styled-components';
 
 export const FilterWrap = styled.div`
     display: flex;
+    justify-content: space-between;
     margin: 11px 43px 11px 34px;
 `;
 
