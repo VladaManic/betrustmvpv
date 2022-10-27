@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { observer } from "mobx-react"
 import store from '../../../store/store'
 
@@ -6,6 +6,8 @@ import store from '../../../store/store'
 import { FilterInner, FilterItem } from './style';
 
 const FilterItems = () => {
+	const [activeClass, setActiveClass] = useState<String | undefined>('All')
+
 	interface Groups {
 		id: number,
 		name: string,
@@ -48,6 +50,7 @@ const FilterItems = () => {
 	const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
     const button: HTMLButtonElement = e.currentTarget;
+		setActiveClass(button.name)
 		if(button.name === 'All'){
 			const currentData = game.market
 			store.addGroup(currentData)
@@ -61,7 +64,7 @@ const FilterItems = () => {
 		<FilterInner>
 			{ groupObject.map((singleGroup: Groups) => (
 				<FilterItem key={ singleGroup.id }>
-					<button className={ singleGroup.className } name={ singleGroup.name } onClick={clickHandler}>{ singleGroup.name } ({ singleGroup.count })</button>
+					<button className={ activeClass === singleGroup.name ? 'active' : ''} name={ singleGroup.name } onClick={clickHandler}>{ singleGroup.name } ({ singleGroup.count })</button>
 				</FilterItem> 
 			))}
 		</FilterInner>

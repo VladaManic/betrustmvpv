@@ -27,6 +27,7 @@ export const FilterItem = styled.div`
 
         &.active {
             color: ${color.mainWhite};
+            border-bottom: 2px solid ${color.secondaryBlue};
         }
     }
 `;
