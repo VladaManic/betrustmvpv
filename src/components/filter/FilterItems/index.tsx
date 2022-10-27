@@ -20,22 +20,22 @@ const FilterItems = () => {
 		{
 			id: 2,
 			name: 'Match',
-			count: 33,
+			count: store.getGroup('Match').length,
 		},
 		{
 			id: 3,
 			name: 'Handicaps',
-			count: 22
+			count: store.getGroup('Handicaps').length,
 		},
 		{
 			id: 4,
 			name: 'Totals',
-			count: 33,
+			count: store.getGroup('Totals').length,
 		},
 		{
 			id: 5,
 			name: 'Combos',
-			count: 33,
+			count: store.getGroup('Combos').length,
 		}
 	]
 

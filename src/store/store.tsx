@@ -7,6 +7,10 @@ import { makeAutoObservable } from 'mobx';
 // 	text: string
 // }
 
+interface Market {
+	marketData: object[]
+}
+
 class Store {
 	// todos: Todo[] = [{
 	// 	id: 1,
@@ -32,6 +36,19 @@ class Store {
 	addData = (data: {}[]) => {
 		this.sportData = data;
 	} 
+
+	getGroup = (marketName: string) => {
+		let marketObject: Market[] = []
+		let currentName;
+		const markets = this.sportData[0].region[0].competition[0].game[0].market
+		markets.forEach(function(singleMarket: any) {
+			currentName = singleMarket.group_name
+			if(currentName === marketName){
+				marketObject.push(singleMarket)
+			}
+		})
+		return marketObject
+	}
 }
 
 const store = new Store();
