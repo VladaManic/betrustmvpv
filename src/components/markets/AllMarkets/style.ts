@@ -4,23 +4,39 @@ import { color } from '../../../shared/styles/variables';
 export const AllWrapper = styled.div`
 		flex: 1;
 		margin-right: 36px;
-`;
 
-export const TitleWrap = styled.div`
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-    width: 100%;
-		height: 28px;
-		padding: 12px;
-		margin-bottom: 10px;
-		background-color: ${color.asideBg};
-		border-radius: 10px;
+		.single-market {
+			&.opened {
+				.col-bet {
+					display: flex;
+				}
+			}
 
-		p {
-			font-size: 14px;
-			line-height: 18px;
-			font-weight: 500;
+			&.closed {
+				.col-bet {
+					display: none;
+				}
+			}
+
+			.title-wrap {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+				height: 28px;
+				padding: 12px;
+				margin-bottom: 10px;
+				background-color: ${color.asideBg};
+				border-radius: 10px;
+				cursor: pointer;
+
+				p {
+					font-size: 14px;
+					line-height: 18px;
+					font-weight: 500;
+					color: ${color.mainWhite};
+				}
+			}
 		}
 `;
 

@@ -47,7 +47,7 @@ const FilterItems = () => {
 		}
 	]
 
-	const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+	const clickHandler = (e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) => {
 		e.preventDefault();
     const button: HTMLButtonElement = e.currentTarget;
 		setActiveClass(button.name)
