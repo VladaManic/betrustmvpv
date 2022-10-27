@@ -12,6 +12,7 @@ export const color = {
 	filterInactive: '#7289BB',
 	asideGradient: '#3B4559',
 	asideBorder: '#4A5A7B',
+	betBlue: '#1BDEEA',
 }
 
 const size = {

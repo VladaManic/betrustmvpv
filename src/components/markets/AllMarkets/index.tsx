@@ -19,11 +19,11 @@ const AllMarkets = () => {
 						<p>{ singleMarket.name }</p>
 						<ArrowUp src={ arrowUp } alt="Arrow up" />
 					</TitleWrap>
-					<BetWrap>
+					<BetWrap className={ singleMarket.col_count === 3 ? 'col-3' : 'col-2'}>
 						{ singleMarket.event.map((event: any) => (
-							<div key={event.id}>
-								<p>{ event.name }</p>
-								<p>{ event.price }</p>
+							<div key={event.id} className="col-item">
+								<p className="data-name">{ event.name }</p>
+								<p className="bet-price">{ event.price }</p>
 							</div>
 						))}
 					</BetWrap>
