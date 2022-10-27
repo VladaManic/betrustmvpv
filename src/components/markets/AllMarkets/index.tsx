@@ -2,27 +2,34 @@ import React from 'react'
 import { observer } from "mobx-react"
 import store from '../../../store/store'
 
+// Assets
+import arrowUp from '../../../assets/img/arrow-up.svg';
+
+// Styles
+import { AllWrapper, TitleWrap, ArrowUp, BetWrap } from './style';
+
 const AllMarkets = () => {
 	const marketData = store.currentGroup
 
 	return (
-		<div>
+		<AllWrapper>
 			{ marketData.map((singleMarket: any) => (
 				<div key={singleMarket.id}>
-					<div>
+					<TitleWrap>
 						<p>{ singleMarket.name }</p>
-					</div>
-					<div>
+						<ArrowUp src={ arrowUp } alt="Arrow up" />
+					</TitleWrap>
+					<BetWrap>
 						{ singleMarket.event.map((event: any) => (
 							<div key={event.id}>
 								<p>{ event.name }</p>
 								<p>{ event.price }</p>
 							</div>
 						))}
-					</div>
+					</BetWrap>
 				</div>
 			))}
-		</div>
+		</AllWrapper>
 	)
 }
 
