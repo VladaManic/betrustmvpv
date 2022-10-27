@@ -28,6 +28,7 @@ class Store {
 	// 	text: "Nulla ornare arcu finibus metus suscipit, ac tempus justo hendrerit."
 	// }];
 	sportData: any[] = [];
+	currentType: any[] = [];
 
 	constructor(){
 		makeAutoObservable(this)
@@ -35,6 +36,10 @@ class Store {
 
 	addData = (data: {}[]) => {
 		this.sportData = data;
+	} 
+
+	addType = (data: {}[]) => {
+		this.currentType = data;
 	} 
 
 	getGroup = (marketName: string) => {

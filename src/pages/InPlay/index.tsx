@@ -1,11 +1,15 @@
 import React from 'react'
 import { observer } from "mobx-react"
+import store from '../../store/store'
 
 import Breadcrumb from '../../components/intro/Breadcrumb'
 import Intro from '../../layout/Intro'
 import Filter from '../../layout/Filter'
+import Markets from '../../layout/Markets'
 
 const InPlay = () => {
+	const currentType = store.sportData[0].region[0].competition[0].game[0].market
+	store.addType(currentType)
 
 	return (
 		<div>
@@ -15,6 +19,7 @@ const InPlay = () => {
 			<Breadcrumb />
 			<Intro />
 			<Filter />
+			<Markets />
 		</div>
 	)
 }
