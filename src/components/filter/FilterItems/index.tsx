@@ -50,10 +50,10 @@ const FilterItems = () => {
     const button: HTMLButtonElement = e.currentTarget;
 		if(button.name === 'All'){
 			const currentData = game.market
-			store.addType(currentData)
+			store.addGroup(currentData)
 		} else {
 			const currentData = store.getGroup(button.name)
-			store.addType(currentData)
+			store.addGroup(currentData)
 		}
 	}
 

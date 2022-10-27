@@ -3,7 +3,7 @@ import { observer } from "mobx-react"
 import store from '../../../store/store'
 
 const AllMarkets = () => {
-	const marketData = store.currentType
+	const marketData = store.currentGroup
 
 	return (
 		<div>

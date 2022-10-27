@@ -8,8 +8,8 @@ import Filter from '../../layout/Filter'
 import Markets from '../../layout/Markets'
 
 const InPlay = () => {
-	const currentType = store.sportData[0].region[0].competition[0].game[0].market
-	store.addType(currentType)
+	const currentGroup = store.sportData[0].region[0].competition[0].game[0].market
+	store.addGroup(currentGroup)
 
 	return (
 		<div>
