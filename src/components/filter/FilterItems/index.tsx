@@ -45,10 +45,24 @@ const FilterItems = () => {
 		}
 	]
 
+	const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+    const button: HTMLButtonElement = e.currentTarget;
+		if(button.name === 'All'){
+			const currentData = game.market
+			store.addType(currentData)
+		} else {
+			const currentData = store.getGroup(button.name)
+			store.addType(currentData)
+		}
+	}
+
 	return (
 		<FilterInner>
 			{ groupObject.map((singleGroup: Groups) => (
-				<FilterItem key={ singleGroup.id }><button className={ singleGroup.className }>{ singleGroup.name } ({ singleGroup.count })</button></FilterItem> 
+				<FilterItem key={ singleGroup.id }>
+					<button className={ singleGroup.className } name={ singleGroup.name } onClick={clickHandler}>{ singleGroup.name } ({ singleGroup.count })</button>
+				</FilterItem> 
 			))}
 		</FilterInner>
 	)
