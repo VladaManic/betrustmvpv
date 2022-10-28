@@ -13,6 +13,12 @@ export const AllWrapper = styled.div`
 			}
 
 			&.closed {
+				.title-wrap {
+					img {
+						transform: rotate(180deg);
+					}
+				}
+
 				.col-bet {
 					display: none;
 				}
