@@ -23,11 +23,17 @@ const AllMarkets = () => {
 		}
 	}
 
+	interface EventObj {
+		id: number,
+		name: string,
+		price: number
+	}
+
 	interface MarketObj {
 		id: number,
 		col_count: number,
 		name: string,
-		event: object[]
+		event: EventObj[]
 	}
 
 	return (
@@ -39,7 +45,7 @@ const AllMarkets = () => {
 						<ArrowUp src={ arrowUp } alt="Arrow up" />
 					</div>
 					<BetWrap className={ singleMarket.col_count === 3 ? 'col-bet col-3' : 'col-bet col-2'}>
-						{ singleMarket.event.map((event: any) => (
+						{ singleMarket.event.map((event: EventObj) => (
 							<div key={event.id} className="col-item">
 								<p className="data-name">{ event.name }</p>
 								<p className="bet-price">{ event.price }</p>
