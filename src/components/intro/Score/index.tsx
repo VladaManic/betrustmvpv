@@ -2,9 +2,6 @@ import React from 'react'
 import { observer } from "mobx-react"
 import store from '../../../store/store'
 
-// Assets
-import dress from '../../../assets/img/dress.svg';
-
 // Styles
 import { ScoreWrap, UpperDress, DownDress } from './style';
 
