@@ -23,9 +23,16 @@ const AllMarkets = () => {
 		}
 	}
 
+	interface MarketObj {
+		id: number,
+		col_count: number,
+		name: string,
+		event: object[]
+	}
+
 	return (
 		<AllWrapper>
-			{ marketData.map((singleMarket: any, index) => (
+			{ marketData.map((singleMarket: MarketObj, index) => (
 				<div key={singleMarket.id} className={index < 5 ? 'single-market opened' : 'single-market closed'}>
 					<div className="title-wrap" onClick={clickHandler}>
 						<p>{ singleMarket.name }</p>
