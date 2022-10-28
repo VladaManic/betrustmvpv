@@ -20,7 +20,7 @@ export const ScoreWrap = styled.div`
         &.score-first {
             font-size: 26px;
             margin-right: 20px;
-            margin-left: 35px;
+            margin-left: 55px;
         }
 
         &.middle-separator {
@@ -35,11 +35,22 @@ export const ScoreWrap = styled.div`
         }
 
         &.name-second {
-            margin-left: 14px;
+            margin-left: 34px;
         }
+    }
+
+    .dress-first,
+    .dress-second {
+        position: relative;
     }
 `;
 
-export const Dress = styled.img`
+export const UpperDress = styled.svg`
+    position: absolute;
+    width: 19px;
+`;
+
+export const DownDress = styled.svg`
+    position: absolute;
     width: 19px;
 `;
