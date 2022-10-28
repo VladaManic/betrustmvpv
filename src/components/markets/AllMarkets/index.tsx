@@ -11,18 +11,6 @@ import { AllWrapper, ArrowUp, BetWrap } from './style';
 const AllMarkets = () => {
 	const marketData = store.currentGroup
 
-	const clickHandler = (e: any) => {
-		//React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
-		const currentClasses = e.currentTarget.parentNode.className;
-		const currentArray = currentClasses.split(' ')
-		const imprtantClass = currentArray[1];
-		if(imprtantClass === 'opened'){
-			e.currentTarget.parentNode.className = 'single-market closed';
-		} else {
-			e.currentTarget.parentNode.className = 'single-market opened';
-		}
-	}
-
 	interface EventObj {
 		id: number,
 		name: string,
@@ -34,6 +22,18 @@ const AllMarkets = () => {
 		col_count: number,
 		name: string,
 		event: EventObj[]
+	}
+
+	const clickHandler = (e: any) => {
+		//React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
+		const currentClasses = e.currentTarget.parentNode.className;
+		const currentArray = currentClasses.split(' ')
+		const imprtantClass = currentArray[1];
+		if(imprtantClass === 'opened'){
+			e.currentTarget.parentNode.className = 'single-market closed';
+		} else {
+			e.currentTarget.parentNode.className = 'single-market opened';
+		}
 	}
 
 	return (
