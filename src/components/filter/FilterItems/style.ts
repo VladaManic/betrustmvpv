@@ -24,10 +24,15 @@ export const FilterItem = styled.div`
         font-size: 14px;
         line-height: 18px;
         color: ${color.filterInactive};
+        transition: opacity 0.25s;
 
         &.active {
             color: ${color.mainWhite};
             border-bottom: 2px solid ${color.secondaryBlue};
+        }
+
+        &:not(.active):hover {
+            opacity: 0.7;
         }
     }
 `;
