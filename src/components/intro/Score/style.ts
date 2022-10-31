@@ -42,15 +42,14 @@ export const ScoreWrap = styled.div`
     .dress-first,
     .dress-second {
         position: relative;
+
+        .dress-up,
+        .dress-down {
+            position: absolute;
+
+            svg {
+                width: 19px;
+            }
+        }
     }
-`;
-
-export const UpperDress = styled.svg`
-    position: absolute;
-    width: 19px;
-`;
-
-export const DownDress = styled.svg`
-    position: absolute;
-    width: 19px;
 `;
