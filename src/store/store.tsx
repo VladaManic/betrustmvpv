@@ -46,16 +46,9 @@ class Store {
 	} 
 
 	getGroup = (marketName: string) => {
-		let marketObject: MarketObj[] = []
-		let currentName;
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
-		markets.forEach(function(singleMarket: MarketObj) {
-			currentName = singleMarket.group_name
-			if(currentName === marketName){
-				marketObject.push(singleMarket)
-			}
-		})
-		return marketObject
+		const marketObj = markets.filter((singleMarket: MarketObj) => singleMarket.group_name === marketName)
+		return marketObj
 	}
 }
 
