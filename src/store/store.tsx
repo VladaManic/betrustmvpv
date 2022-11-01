@@ -79,7 +79,9 @@ class Store {
 			))
 		)
 		uniqueArray.forEach(function(singleObj: GroupData) {
-			finalArray.push(singleObj)
+			if(singleObj.count > 0){
+				finalArray.push(singleObj)
+			}
 		})
 		return finalArray
 	}
