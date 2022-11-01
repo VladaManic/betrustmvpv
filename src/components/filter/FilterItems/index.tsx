@@ -51,10 +51,12 @@ const FilterItems = () => {
 		setActiveClass(button.name)
 		if(button.name === 'All'){
 			const currentData = game.market
+			//Sort markets before setting them to mobX
 			const currentDataSorted = currentData.slice().sort((a: MarketObj, b: MarketObj) => parseInt(a.id) - parseInt(b.id))
 			store.addGroup(currentDataSorted)
 		} else {
 			const currentData = store.getGroup(button.name)
+			//Sort markets before setting them to mobX
 			const currentDataSorted = currentData.slice().sort((a: MarketObj, b: MarketObj) => parseInt(a.id) - parseInt(b.id))
 			store.addGroup(currentDataSorted)
 		}

@@ -12,6 +12,7 @@ const AllMarkets = () => {
 	const marketData = store.currentGroup
 
 	interface EventObj {
+		order: string,
 		id: number,
 		name: string,
 		price: number
@@ -23,6 +24,14 @@ const AllMarkets = () => {
 		name: string,
 		event: EventObj[]
 	}
+
+	//Sort events before displaying them
+	let marketDataSorted: MarketObj[] = []
+	let singleEventSorted: EventObj[] = []
+	marketData.forEach(function(singleMarket: MarketObj) {
+		singleEventSorted = singleMarket.event.slice().sort((a: EventObj, b: EventObj) => parseInt(a.order) - parseInt(b.order));
+		marketDataSorted.push({...singleMarket, event: singleEventSorted})
+	})
 
 	const clickHandler = (e: any) => {
 		//React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
@@ -38,7 +47,7 @@ const AllMarkets = () => {
 
 	return (
 		<AllWrapper>
-			{ marketData.map((singleMarket: MarketObj, index) => (
+			{ marketDataSorted.map((singleMarket: MarketObj, index) => (
 				<div key={singleMarket.id} className={index < 5 ? 'single-market opened' : 'single-market closed'}>
 					<div className="title-wrap" onClick={clickHandler}>
 						<p>{ singleMarket.name }</p>

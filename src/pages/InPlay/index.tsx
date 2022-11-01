@@ -12,6 +12,7 @@ const InPlay = () => {
 		id: string,
 	}
 	const currentGroup = store.sportData[0].region[0].competition[0].game[0].market
+	//Sort markets before setting them to mobX
 	const currentGroupSorted = currentGroup.slice().sort((a: MarketObj, b: MarketObj) => parseInt(a.id) - parseInt(b.id));
 	store.addGroup(currentGroupSorted)
 
