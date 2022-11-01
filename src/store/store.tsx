@@ -10,8 +10,15 @@ interface MarketObj {
 	id: number,
 	col_count: number,
 	name: string,
+	group_id: number,
 	group_name: string,
 	event: object[]
+}
+
+interface GroupData {
+	id: number,
+	name: string,
+	count: number
 }
 
 class Store {
@@ -49,6 +56,32 @@ class Store {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
 		const marketObj = markets.filter((singleMarket: MarketObj) => singleMarket.group_name === marketName)
 		return marketObj
+	}
+
+	getGroupsObj = () => {
+		const markets = this.sportData[0].region[0].competition[0].game[0].market
+		let groupArray: any[] = []
+		let groupCount: number
+		let finalArray: GroupData[] = [
+			{
+				id: 1,
+				name: 'All', 
+				count: this.sportData[0].region[0].competition[0].game[0].markets_count
+			}
+		]
+		markets.forEach(function(singleMarket: MarketObj) {
+			groupCount = store.getGroup(singleMarket.group_name).length
+			groupArray.push({id: singleMarket.group_id, name: singleMarket.group_name, count: groupCount})
+		})
+		const uniqueArray = groupArray.filter((value: any, index: number, self: any) =>
+			index === self.findIndex((t: any) => (
+				t.place === value.place && t.name === value.name
+			))
+		)
+		uniqueArray.forEach(function(singleObj: GroupData) {
+			finalArray.push(singleObj)
+		})
+		return finalArray
 	}
 }
 
