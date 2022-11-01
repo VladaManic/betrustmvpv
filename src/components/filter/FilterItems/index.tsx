@@ -13,6 +13,9 @@ const FilterItems = () => {
 		name: string,
 		count: number,
 	}
+	interface MarketObj {
+		id: string,
+	}
 	const game = store.sportData[0].region[0].competition[0].game[0];
 	const groupObject: Groups[] = store.getGroupsArr()
 	// const groupObject: Groups[] = [{
@@ -46,13 +49,14 @@ const FilterItems = () => {
 		e.preventDefault();
     const button: HTMLButtonElement = e.currentTarget;
 		setActiveClass(button.name)
-
 		if(button.name === 'All'){
 			const currentData = game.market
-			store.addGroup(currentData)
+			const currentDataSorted = currentData.slice().sort((a: MarketObj, b: MarketObj) => parseInt(a.id) - parseInt(b.id))
+			store.addGroup(currentDataSorted)
 		} else {
 			const currentData = store.getGroup(button.name)
-			store.addGroup(currentData)
+			const currentDataSorted = currentData.slice().sort((a: MarketObj, b: MarketObj) => parseInt(a.id) - parseInt(b.id))
+			store.addGroup(currentDataSorted)
 		}
 	}
 

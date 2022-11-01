@@ -8,14 +8,15 @@ import Filter from '../../layout/Filter'
 import Markets from '../../layout/Markets'
 
 const InPlay = () => {
+	interface MarketObj {
+		id: string,
+	}
 	const currentGroup = store.sportData[0].region[0].competition[0].game[0].market
-	store.addGroup(currentGroup)
+	const currentGroupSorted = currentGroup.slice().sort((a: MarketObj, b: MarketObj) => parseInt(a.id) - parseInt(b.id));
+	store.addGroup(currentGroupSorted)
 
 	return (
 		<div>
-			{/* { store.todos.map((todo: {id: number, title: string, text: string}) => (
-				<h2 key={todo.id}>{todo.text}</h2>
-			))} */}
 			<Breadcrumb />
 			<Intro />
 			<Filter />
