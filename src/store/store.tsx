@@ -64,7 +64,7 @@ class Store {
 		let groupCount: number
 		let finalArray: GroupData[] = [
 			{
-				id: 1,
+				id: 0,
 				name: 'All', 
 				count: this.sportData[0].region[0].competition[0].game[0].markets_count
 			}
