@@ -204,6 +204,16 @@
 											"prematch_express_id": 1,
 											"event": [
 												{
+													"order": 2,
+													"id": 2794029788,
+													"type_1": "No",
+													"type": "No",
+													"type_id": 6546,
+													"original_order": 3,
+													"name": "No Goal",
+													"price": 3.9
+												},
+												{
 													"order": 0,
 													"id": 2794029774,
 													"type_1": "Home",
@@ -222,16 +232,6 @@
 													"original_order": 2,
 													"name": "Team 2",
 													"price": 3
-												},
-												{
-													"order": 2,
-													"id": 2794029788,
-													"type_1": "No",
-													"type": "No",
-													"type_id": 6546,
-													"original_order": 3,
-													"name": "No Goal",
-													"price": 3.9
 												}
 											]
 										},

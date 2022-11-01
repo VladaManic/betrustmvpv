@@ -26,12 +26,7 @@ const AllMarkets = () => {
 	}
 
 	//Sort events before displaying them
-	let marketDataSorted: MarketObj[] = []
-	let singleEventSorted: EventObj[] = []
-	marketData.forEach(function(singleMarket: MarketObj) {
-		singleEventSorted = singleMarket.event.slice().sort((a: EventObj, b: EventObj) => parseInt(a.order) - parseInt(b.order));
-		marketDataSorted.push({...singleMarket, event: singleEventSorted})
-	})
+	const marketDataSorted = store.getCurrentSorted(marketData)
 
 	const clickHandler = (e: any) => {
 		//React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>

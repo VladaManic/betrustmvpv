@@ -1,12 +1,19 @@
 import { makeAutoObservable } from 'mobx';
 
+interface EventObj {
+	order: string,
+	id: number,
+	name: string,
+	price: number
+}
+
 interface MarketObj {
 	id: number,
 	col_count: number,
 	name: string,
 	group_id: number,
 	group_name: string,
-	event: object[]
+	event: EventObj[]
 }
 
 interface GroupData {
@@ -33,8 +40,8 @@ class Store {
 
 	getGroup = (marketName: string) => {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
-		const marketObj = markets.filter((singleMarket: MarketObj) => singleMarket.group_name === marketName)
-		return marketObj
+		const marketData = markets.filter((singleMarket: MarketObj) => singleMarket.group_name === marketName)
+		return marketData
 	}
 
 	getGroupsArr = () => {
@@ -69,6 +76,16 @@ class Store {
 			}
 		})
 		return finalArray
+	}
+
+	getCurrentSorted = (marketData: MarketObj[]) => {
+		let marketDataSorted: MarketObj[] = []
+		let singleEventSorted: EventObj[] = []
+		marketData.forEach(function(singleMarket: MarketObj) {
+			singleEventSorted = singleMarket.event.slice().sort((a: EventObj, b: EventObj) => parseInt(a.order) - parseInt(b.order));
+			marketDataSorted.push({...singleMarket, event: singleEventSorted})
+		})
+		return marketDataSorted
 	}
 }
 
