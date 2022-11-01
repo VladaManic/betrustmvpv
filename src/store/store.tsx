@@ -1,11 +1,5 @@
 import { makeAutoObservable } from 'mobx';
 
-// interface Todo {
-// 	id: number,
-// 	title: string
-// 	text: string
-// }
-
 interface MarketObj {
 	id: number,
 	col_count: number,
@@ -22,21 +16,6 @@ interface GroupData {
 }
 
 class Store {
-	// todos: Todo[] = [{
-	// 	id: 1,
-	// 	title: "Lorem ipsum",
-	// 	text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-	// },
-	// {
-	// 	id: 2,
-	// 	title: "Fusce fringilla",
-	// 	text: "Fusce fringilla diam at volutpat rutrum."
-	// },
-	// {
-	// 	id: 3,
-	// 	title: "Nulla ornare",
-	// 	text: "Nulla ornare arcu finibus metus suscipit, ac tempus justo hendrerit."
-	// }];
 	sportData: any[] = [];
 	currentGroup: any[] = [];
 
@@ -58,7 +37,7 @@ class Store {
 		return marketObj
 	}
 
-	getGroupsObj = () => {
+	getGroupsArr = () => {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
 		let groupArray: any[] = []
 		let groupCount: number
@@ -69,16 +48,22 @@ class Store {
 				count: this.sportData[0].region[0].competition[0].game[0].markets_count
 			}
 		]
+		//Get data for every group
 		markets.forEach(function(singleMarket: MarketObj) {
 			groupCount = store.getGroup(singleMarket.group_name).length
 			groupArray.push({id: singleMarket.group_id, name: singleMarket.group_name, count: groupCount})
 		})
+		//Get only unique objects for groups
 		const uniqueArray = groupArray.filter((value: any, index: number, self: any) =>
 			index === self.findIndex((t: any) => (
 				t.place === value.place && t.name === value.name
 			))
 		)
-		uniqueArray.forEach(function(singleObj: GroupData) {
+		//Sort array
+		const sortedArray = uniqueArray.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+		//Concat group objects to array with default All markets object
+		sortedArray.forEach(function(singleObj: GroupData) {
+			//If no markets in that group, don't show
 			if(singleObj.count > 0){
 				finalArray.push(singleObj)
 			}

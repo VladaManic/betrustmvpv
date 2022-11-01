@@ -14,7 +14,7 @@ const FilterItems = () => {
 		count: number,
 	}
 	const game = store.sportData[0].region[0].competition[0].game[0];
-	const groupObject: Groups[] = store.getGroupsObj()
+	const groupObject: Groups[] = store.getGroupsArr()
 	// const groupObject: Groups[] = [{
 	// 		id: 1,
 	// 		name: 'All', 

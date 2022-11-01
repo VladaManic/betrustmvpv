@@ -186,6 +186,59 @@
 									],
 									"market": [
 										{
+											"id": 902133668,
+											"col_count": 3,
+											"type": "Handicap",
+											"name_template": "Goals Handicap 3 Way",
+											"sequence": 0,
+											"point_sequence": 0,
+											"express_id": 1,
+											"cashout": 1,
+											"display_key": "HANDICAP3WAY",
+											"display_sub_key": "MATCH",
+											"group_id": 128,
+											"name": "Goals Handicap 3 Way",
+											"group_name": "Handicaps",
+											"order": 2499990,
+											"group_order": 4,
+											"prematch_express_id": 1,
+											"event": [
+												{
+													"order": 0,
+													"id": 2794029763,
+													"type_1": "Home",
+													"type": "Home",
+													"type_id": 5456,
+													"original_order": 1,
+													"name": "Tuuliin Tom Tulnuud ",
+													"price": 5.2,
+													"base": -1
+												},
+												{
+													"order": 1,
+													"id": 2794029760,
+													"type_1": "Tie",
+													"type": "Tie",
+													"type_id": 6543,
+													"original_order": 2,
+													"name": "Tie: Khukh Arslanguud ",
+													"price": 3.3,
+													"base": 1
+												},
+												{
+													"order": 2,
+													"id": 2794029761,
+													"type_1": "Away",
+													"type": "Away",
+													"type_id": 5457,
+													"original_order": 3,
+													"name": "Khukh Arslanguud ",
+													"price": 1.62,
+													"base": 1
+												}
+											]
+										},
+										{
 											"id": 902133661,
 											"col_count": 3,
 											"type": "TeamToScore",
@@ -282,59 +335,6 @@
 													"original_order": 3,
 													"name": "X2",
 													"price": 1.62
-												}
-											]
-										},
-										{
-											"id": 902133668,
-											"col_count": 3,
-											"type": "Handicap",
-											"name_template": "Goals Handicap 3 Way",
-											"sequence": 0,
-											"point_sequence": 0,
-											"express_id": 1,
-											"cashout": 1,
-											"display_key": "HANDICAP3WAY",
-											"display_sub_key": "MATCH",
-											"group_id": 128,
-											"name": "Goals Handicap 3 Way",
-											"group_name": "Handicaps",
-											"order": 2499990,
-											"group_order": 4,
-											"prematch_express_id": 1,
-											"event": [
-												{
-													"order": 0,
-													"id": 2794029763,
-													"type_1": "Home",
-													"type": "Home",
-													"type_id": 5456,
-													"original_order": 1,
-													"name": "Tuuliin Tom Tulnuud ",
-													"price": 5.2,
-													"base": -1
-												},
-												{
-													"order": 1,
-													"id": 2794029760,
-													"type_1": "Tie",
-													"type": "Tie",
-													"type_id": 6543,
-													"original_order": 2,
-													"name": "Tie: Khukh Arslanguud ",
-													"price": 3.3,
-													"base": 1
-												},
-												{
-													"order": 2,
-													"id": 2794029761,
-													"type_1": "Away",
-													"type": "Away",
-													"type_id": 5457,
-													"original_order": 3,
-													"name": "Khukh Arslanguud ",
-													"price": 1.62,
-													"base": 1
 												}
 											]
 										},
