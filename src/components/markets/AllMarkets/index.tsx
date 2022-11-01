@@ -2,11 +2,11 @@ import React from 'react'
 import { observer } from "mobx-react"
 import store from '../../../store/store'
 
-// Assets
-import arrowUp from '../../../assets/img/arrow-up.svg';
+import MarketTitle from '../MarketTitle'
+import MarketEvents from '../MarketEvents'
 
 // Styles
-import { AllWrapper, ArrowUp, BetWrap } from './style';
+import { AllWrapper, SingleWrap } from './style';
 
 const AllMarkets = () => {
 	const marketData = store.currentGroup
@@ -43,20 +43,10 @@ const AllMarkets = () => {
 	return (
 		<AllWrapper>
 			{ marketDataSorted.map((singleMarket: MarketObj, index) => (
-				<div key={singleMarket.id} className={index < 5 ? 'single-market opened' : 'single-market closed'}>
-					<div className="title-wrap" onClick={clickHandler}>
-						<p>{ singleMarket.name }</p>
-						<ArrowUp src={ arrowUp } alt="Arrow up" />
-					</div>
-					<BetWrap className={ singleMarket.col_count === 3 ? 'col-bet col-3' : 'col-bet col-2'}>
-						{ singleMarket.event.map((event: EventObj) => (
-							<div key={event.id} className="col-item">
-								<p className="data-name">{ event.name }</p>
-								<p className="bet-price">{ event.price }</p>
-							</div>
-						))}
-					</BetWrap>
-				</div>
+				<SingleWrap key={singleMarket.id}>
+					<MarketTitle singleMarket={singleMarket} onClick={clickHandler} />
+					<MarketEvents market={singleMarket} />
+				</SingleWrap>
 			))}
 		</AllWrapper>
 	)
