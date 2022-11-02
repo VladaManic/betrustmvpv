@@ -11,7 +11,7 @@ import { GroupObj } from '../../../types/interfaces';
 
 const FilterItems = () => {
 	const [activeClass, setActiveClass] = useState<String | undefined>('All')
-	const game = store.sportData[0].region[0].competition[0].game[0];
+	const game = store.getGameData();
 	const groupObject: GroupObj[] = store.getGroupsArr()
 	// const groupObject: Groups[] = [{
 	// 		id: 1,

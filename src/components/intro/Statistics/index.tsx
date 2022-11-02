@@ -11,7 +11,7 @@ import cornerIcon from '../../../assets/img/corner.svg';
 import { StatisticsWrap, YellowCard, RedCard, CornerIcon } from './style';
 
 const Statistics = () => {
-	const game = store.sportData[0].region[0].competition[0].game[0];
+	const game = store.getGameData();
 
 	return (
 		<StatisticsWrap>

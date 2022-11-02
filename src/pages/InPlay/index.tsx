@@ -9,7 +9,7 @@ import Filter from '../../layout/Filter'
 import Markets from '../../layout/Markets'
 
 const InPlay = () => {
-	const currentGroup = store.sportData[0].region[0].competition[0].game[0].market
+	const currentGroup = store.getAllMarkets();
 	//Sort markets before setting them to mobX
 	const currentGroupSorted = orderBy(currentGroup, ['group_order', 'order']);
 	store.addGroup(currentGroupSorted)

@@ -9,7 +9,7 @@ import DownDress from '../Assets/downDress'
 import { ScoreWrap } from './style';
 
 const Score = () => {
-	const game = store.sportData[0].region[0].competition[0].game[0]
+	const game = store.getGameData();
 	const team1Up: string = '#' + game.info.shirt1_color
 	const team1Down: string = '#' + game.info.short1_color
 	const team2Up: string = '#' + game.info.shirt2_color

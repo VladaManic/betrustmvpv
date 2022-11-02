@@ -6,8 +6,8 @@ import improveName from '../helpers/improveName';
 import { GroupObj, MarketObj, EventObj } from '../types/interfaces';
 
 class Store {
-	sportData: any[] = [];
-	currentGroup: any[] = [];
+	private sportData: any[] = [];
+	private currentGroup: any[] = [];
 
 	constructor(){
 		makeAutoObservable(this)
@@ -21,12 +21,38 @@ class Store {
 		this.currentGroup = data;
 	} 
 
+	getAllMarkets = () => {
+		const markets = this.sportData[0].region[0].competition[0].game[0].market;
+		return markets;
+	}
+
+	getGameData = () => {
+		const game = this.sportData[0].region[0].competition[0].game[0];
+		return game;
+	}
+
+	getRegion = () => {
+		const region = this.sportData[0].region[0].name;
+		return region;
+	}
+
+	getCompetiotion = () => {
+		const competition = store.sportData[0].region[0].competition[0].name;
+		return competition;
+	}
+
+	getCurrentGroup = () => {
+		return this.currentGroup;
+	}
+
+	//Getting markets only for specific group
 	getGroup = (marketName: string) => {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
 		const marketData = markets.filter((singleMarket: MarketObj) => singleMarket.group_name === marketName)
 		return marketData
 	}
 
+	//For filter
 	getGroupsArr = () => {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
 		let groupArray: any[] = []
@@ -61,15 +87,18 @@ class Store {
 		return finalArray
 	}
 
+	//Sort events in markets and improving names before displaying
 	getCurrentSorted = (marketData: MarketObj[]) => {
 		let marketDataSorted: MarketObj[] = []
 		marketData.forEach(function(singleMarket: MarketObj) {
+			// Sort events
 			const eventsSorted = orderBy(singleMarket.event, ['order']);
 			let eventsData: EventObj[] = []
 			eventsSorted.forEach(function(singleEvent: EventObj) {
 				// Improve names for events
 				eventsData.push({...singleEvent, name: improveName(singleEvent.name, false)})
 			})
+			// Improve names for markets
 			marketDataSorted.push({...singleMarket, event: eventsData, name: improveName(singleMarket.name, true)})
 		})
 		return marketDataSorted
