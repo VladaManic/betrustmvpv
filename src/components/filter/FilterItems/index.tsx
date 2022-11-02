@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { observer } from "mobx-react"
 import store from '../../../store/store'
+import { orderBy } from 'lodash';
 
 // Styles
 import { FilterInner, FilterItem } from './style';
@@ -10,10 +11,6 @@ import { GroupObj } from '../../../types/interfaces';
 
 const FilterItems = () => {
 	const [activeClass, setActiveClass] = useState<String | undefined>('All')
-
-	interface MarketObj {
-		id: string,
-	}
 	const game = store.sportData[0].region[0].competition[0].game[0];
 	const groupObject: GroupObj[] = store.getGroupsArr()
 	// const groupObject: Groups[] = [{
@@ -50,12 +47,12 @@ const FilterItems = () => {
 		if(button.name === 'All'){
 			const currentData = game.market
 			//Sort markets before setting them to mobX
-			const currentDataSorted = currentData.slice().sort((a: MarketObj, b: MarketObj) => parseInt(a.id) - parseInt(b.id))
+			const currentDataSorted = orderBy(currentData, ['group_order', 'order']);
 			store.addGroup(currentDataSorted)
 		} else {
 			const currentData = store.getGroup(button.name)
 			//Sort markets before setting them to mobX
-			const currentDataSorted = currentData.slice().sort((a: MarketObj, b: MarketObj) => parseInt(a.id) - parseInt(b.id))
+			const currentDataSorted = orderBy(currentData, ['order']);
 			store.addGroup(currentDataSorted)
 		}
 	}
