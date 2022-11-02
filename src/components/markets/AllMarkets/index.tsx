@@ -2,11 +2,10 @@ import React from 'react'
 import { observer } from "mobx-react"
 import store from '../../../store/store'
 
-import MarketTitle from '../MarketTitle'
-import MarketEvents from '../MarketEvents'
+import MarketWrap from '../MarketWrap'
 
 // Styles
-import { AllWrapper, SingleWrap } from './style';
+import { AllWrapper } from './style';
 
 const AllMarkets = () => {
 	const marketData = store.currentGroup
@@ -28,25 +27,10 @@ const AllMarkets = () => {
 	//Sort events before displaying them
 	const marketDataSorted = store.getCurrentSorted(marketData)
 
-	const clickHandler = (e: any) => {
-		//React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
-		const currentClasses = e.currentTarget.parentNode.className;
-		const currentArray = currentClasses.split(' ')
-		const imprtantClass = currentArray[1];
-		if(imprtantClass === 'opened'){
-			e.currentTarget.parentNode.className = 'single-market closed';
-		} else {
-			e.currentTarget.parentNode.className = 'single-market opened';
-		}
-	}
-
 	return (
 		<AllWrapper>
-			{ marketDataSorted.map((singleMarket: MarketObj, index) => (
-				<SingleWrap key={singleMarket.id}>
-					<MarketTitle singleMarket={singleMarket} onClick={clickHandler} />
-					<MarketEvents market={singleMarket} />
-				</SingleWrap>
+			{ marketDataSorted.map((singleMarket: MarketObj, index: number) => (
+				<MarketWrap key={singleMarket.id} singleMarket={singleMarket} index={index} />
 			))}
 		</AllWrapper>
 	)

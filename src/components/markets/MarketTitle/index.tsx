@@ -14,15 +14,15 @@ interface MarketObj {
 }
 
 interface Props {
-	singleMarket: MarketObj;
+	market: MarketObj;
 	onClick: any;
 	// active: boolean;
 }
 
-const MarketTitle = ({singleMarket}: Props) => {
+const MarketTitle = ({market}: Props) => {
 	return (
 		<div className="title-wrap">
-			<p>{ singleMarket.name }</p>
+			<p>{ market.name }</p>
 			<ArrowUp src={ arrowUp } alt="Arrow up" />
 		</div>
 	)
