@@ -1,10 +1,11 @@
 import React from 'react'
+import clsx from 'clsx';
 
 // Assets
 import arrowUp from '../../../assets/img/arrow-up.svg';
 
 // Styles
-import { ArrowUp } from './style';
+import { TitleWrap, ArrowUp } from './style';
 
 interface MarketObj {
 	id: number,
@@ -16,15 +17,15 @@ interface MarketObj {
 interface Props {
 	market: MarketObj;
 	onClick: any;
-	// active: boolean;
+	active: boolean;
 }
 
-const MarketTitle = ({market, onClick}: Props) => {
+const MarketTitle = ({market, onClick, active}: Props) => {
 	return (
-		<div className="title-wrap" onClick={onClick} >
+		<TitleWrap className={clsx(active && 'active')} onClick={onClick}>
 			<p>{ market.name }</p>
 			<ArrowUp src={ arrowUp } alt="Arrow up" />
-		</div>
+		</TitleWrap>
 	)
 }
 

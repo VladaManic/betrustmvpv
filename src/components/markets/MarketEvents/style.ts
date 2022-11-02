@@ -35,17 +35,17 @@ export const BetWrap = styled.div`
 				opacity: 0.7;
 			}
 		}
+	}
 
-		&.col-2 {
-			.col-item {
-				flex-basis: 49%;
-			}
+	&.col-2 {
+		.col-item {
+			flex-basis: 49%;
 		}
+	}
 
-		&.col-3 {
-			.col-item {
-				flex-basis: 32%;
-			}
+	&.col-3 {
+		.col-item {
+			flex-basis: 32%;
 		}
 	}
 `;

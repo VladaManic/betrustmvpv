@@ -31,7 +31,7 @@ const MarketWrap = ({singleMarket, index}: Props) => {
 
 	return (
 		<SingleWrap>
-			<MarketTitle market={singleMarket} onClick={() => setOpened((curr: boolean) => !curr)} />
+			<MarketTitle market={singleMarket} onClick={() => setOpened((curr: boolean) => !curr)} active={opened} />
 			{opened && <MarketEvents market={singleMarket} />}
 		</SingleWrap>
 	)
