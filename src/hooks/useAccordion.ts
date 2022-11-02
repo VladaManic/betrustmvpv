@@ -1,24 +1,18 @@
 import { useEffect, useState } from 'react';
 
-interface ISingleReturn {
-	opened: boolean;
-	setOpened: any;
-}
-
-const useAccordion = (status: boolean, typeIndex: number, index: number) => {
+const useAccordion = (status: boolean, index: number) => {
 	const [opened, setOpened] = useState(status);
 
 	useEffect(() => {
-		if (typeIndex === 0 && index < 6) {
+		if (index < 5) {
 			setOpened(true);
 		}
-
 		return () => {
 			setOpened(false);
 		};
-	}, [typeIndex, index]);
+	}, [index]);
 
-	return { opened, setOpened };
+	return {opened, setOpened};
 };
 
 export default useAccordion

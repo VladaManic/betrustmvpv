@@ -19,9 +19,9 @@ interface Props {
 	// active: boolean;
 }
 
-const MarketTitle = ({market}: Props) => {
+const MarketTitle = ({market, onClick}: Props) => {
 	return (
-		<div className="title-wrap">
+		<div className="title-wrap" onClick={onClick} >
 			<p>{ market.name }</p>
 			<ArrowUp src={ arrowUp } alt="Arrow up" />
 		</div>

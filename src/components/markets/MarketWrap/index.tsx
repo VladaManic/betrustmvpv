@@ -1,4 +1,5 @@
 import React from 'react'
+import useAccordion from '../../../hooks/useAccordion';
 
 import MarketTitle from '../MarketTitle'
 import MarketEvents from '../MarketEvents'
@@ -23,27 +24,15 @@ interface MarketObj {
 interface Props {
 	singleMarket: MarketObj;
 	index: number
-	//onClick: any;
-	// active: boolean;
-}
-
-const clickHandler = (e: any) => {
-	//React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
-	const currentClasses = e.currentTarget.parentNode.className;
-	const currentArray = currentClasses.split(' ')
-	const imprtantClass = currentArray[1];
-	if(imprtantClass === 'opened'){
-		e.currentTarget.parentNode.className = 'single-market closed';
-	} else {
-		e.currentTarget.parentNode.className = 'single-market opened';
-	}
 }
 
 const MarketWrap = ({singleMarket, index}: Props) => {
+	const {opened, setOpened} = useAccordion(false, index);
+
 	return (
 		<SingleWrap>
-			<MarketTitle market={singleMarket} onClick={clickHandler} />
-			<MarketEvents market={singleMarket} />
+			<MarketTitle market={singleMarket} onClick={() => setOpened((curr: boolean) => !curr)} />
+			{opened && <MarketEvents market={singleMarket} />}
 		</SingleWrap>
 	)
 }
