@@ -7,19 +7,8 @@ import MarketEvents from '../MarketEvents'
 // Styles
 import { SingleWrap } from './style';
 
-interface EventObj {
-	order: string,
-	id: number,
-	name: string,
-	price: number
-}
-
-interface MarketObj {
-	id: number,
-	col_count: number,
-	name: string,
-	event: EventObj[]
-}
+// Types
+import { MarketObj } from '../../../types/interfaces';
 
 interface Props {
 	singleMarket: MarketObj;

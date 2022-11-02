@@ -3,12 +3,8 @@ import React from 'react'
 // Styles
 import { ColItem } from './style'
 
-interface EventObj {
-	order: string,
-	id: number,
-	name: string,
-	price: number
-}
+// Types
+import { EventObj  } from '../../../types/interfaces';
 
 interface Props {
 	event: EventObj

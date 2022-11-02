@@ -7,23 +7,11 @@ import MarketWrap from '../MarketWrap'
 // Styles
 import { AllWrapper } from './style';
 
+// Types
+import { MarketObj  } from '../../../types/interfaces';
+
 const AllMarkets = () => {
 	const marketData = store.currentGroup
-
-	interface EventObj {
-		order: string,
-		id: number,
-		name: string,
-		price: number
-	}
-
-	interface MarketObj {
-		id: number,
-		col_count: number,
-		name: string,
-		event: EventObj[]
-	}
-
 	//Sort events before displaying them
 	const marketDataSorted = store.getCurrentSorted(marketData)
 

@@ -5,14 +5,12 @@ import store from '../../../store/store'
 // Styles
 import { FilterInner, FilterItem } from './style';
 
+// Types
+import { Groups } from '../../../types/interfaces';
+
 const FilterItems = () => {
 	const [activeClass, setActiveClass] = useState<String | undefined>('All')
 
-	interface Groups {
-		id: number,
-		name: string,
-		count: number,
-	}
 	interface MarketObj {
 		id: string,
 	}

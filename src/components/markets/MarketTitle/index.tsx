@@ -7,12 +7,8 @@ import arrowUp from '../../../assets/img/arrow-up.svg';
 // Styles
 import { TitleWrap, ArrowUp } from './style';
 
-interface MarketObj {
-	id: number,
-	col_count: number,
-	name: string,
-	event: any[]
-}
+// Types
+import { MarketObj  } from '../../../types/interfaces';
 
 interface Props {
 	market: MarketObj;

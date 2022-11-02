@@ -1,24 +1,13 @@
 import React from 'react'
 import clsx from 'clsx';
 
+import Event from '../Event'
+
 // Styles
 import { BetWrap } from './style';
 
-import Event from '../Event'
-
-interface EventObj {
-	order: string,
-	id: number,
-	name: string,
-	price: number
-}
-
-interface MarketObj {
-	id: number,
-	col_count: number,
-	name: string,
-	event: EventObj[]
-}
+// Types
+import { MarketObj, EventObj } from '../../../types/interfaces';
 
 interface Props {
 	market: MarketObj;
