@@ -6,7 +6,7 @@ import store from '../../../store/store'
 import { FilterInner, FilterItem } from './style';
 
 // Types
-import { Groups } from '../../../types/interfaces';
+import { GroupObj } from '../../../types/interfaces';
 
 const FilterItems = () => {
 	const [activeClass, setActiveClass] = useState<String | undefined>('All')
@@ -15,7 +15,7 @@ const FilterItems = () => {
 		id: string,
 	}
 	const game = store.sportData[0].region[0].competition[0].game[0];
-	const groupObject: Groups[] = store.getGroupsArr()
+	const groupObject: GroupObj[] = store.getGroupsArr()
 	// const groupObject: Groups[] = [{
 	// 		id: 1,
 	// 		name: 'All', 
@@ -62,7 +62,7 @@ const FilterItems = () => {
 
 	return (
 		<FilterInner>
-			{ groupObject.map((singleGroup: Groups) => (
+			{ groupObject.map((singleGroup: GroupObj) => (
 				<FilterItem key={ singleGroup.id }>
 					<button className={ activeClass === singleGroup.name ? 'active' : ''} name={ singleGroup.name } onClick={clickHandler}>{ singleGroup.name } ({ singleGroup.count })</button>
 				</FilterItem> 

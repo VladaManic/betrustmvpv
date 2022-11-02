@@ -1,26 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
-interface EventObj {
-	order: string,
-	id: number,
-	name: string,
-	price: number
-}
-
-interface MarketObj {
-	id: number,
-	col_count: number,
-	name: string,
-	group_id: number,
-	group_name: string,
-	event: EventObj[]
-}
-
-interface GroupData {
-	id: number,
-	name: string,
-	count: number
-}
+import { GroupObj, MarketObj, EventObj } from '../types/interfaces';
 
 class Store {
 	sportData: any[] = [];
@@ -48,7 +28,7 @@ class Store {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
 		let groupArray: any[] = []
 		let groupCount: number
-		let finalArray: GroupData[] = [
+		let finalArray: GroupObj[] = [
 			{
 				id: 0,
 				name: 'All', 
@@ -69,7 +49,7 @@ class Store {
 		//Sort array
 		const sortedArray = uniqueArray.sort((a, b) => parseInt(a.id) - parseInt(b.id));
 		//Concat group objects to array with default All markets object
-		sortedArray.forEach(function(singleObj: GroupData) {
+		sortedArray.forEach(function(singleObj: GroupObj) {
 			//If no markets in that group, don't show
 			if(singleObj.count > 0){
 				finalArray.push(singleObj)
