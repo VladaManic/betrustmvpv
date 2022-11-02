@@ -1,5 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import { orderBy } from 'lodash';
+import improveName from '../helpers/improveName';
 
 // Types
 import { GroupObj, MarketObj, EventObj } from '../types/interfaces';
@@ -62,12 +63,25 @@ class Store {
 
 	getCurrentSorted = (marketData: MarketObj[]) => {
 		let marketDataSorted: MarketObj[] = []
-		let singleEventSorted: EventObj[] = []
 		marketData.forEach(function(singleMarket: MarketObj) {
-			singleEventSorted = orderBy(singleMarket.event, ['order']);
-			marketDataSorted.push({...singleMarket, event: singleEventSorted})
+			const eventsSorted = orderBy(singleMarket.event, ['order']);
+			let eventsData: EventObj[] = []
+			eventsSorted.forEach(function(singleEvent: EventObj) {
+				eventsData.push({...singleEvent, name: improveName(singleEvent.name)})
+			})
+			marketDataSorted.push({...singleMarket, event: eventsData})
 		})
 		return marketDataSorted
+	}
+
+	getTeam1Name = () => {
+		const name = this.sportData[0].region[0].competition[0].game[0].team1_name;
+		return name;
+	}
+
+	getTeam2Name = () => {
+		const name = this.sportData[0].region[0].competition[0].game[0].team2_name;
+		return name;
 	}
 }
 
