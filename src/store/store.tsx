@@ -1,5 +1,7 @@
 import { makeAutoObservable } from 'mobx';
+import { orderBy } from 'lodash';
 
+// Types
 import { GroupObj, MarketObj, EventObj } from '../types/interfaces';
 
 class Store {
@@ -62,7 +64,7 @@ class Store {
 		let marketDataSorted: MarketObj[] = []
 		let singleEventSorted: EventObj[] = []
 		marketData.forEach(function(singleMarket: MarketObj) {
-			singleEventSorted = singleMarket.event.slice().sort((a: EventObj, b: EventObj) => parseInt(a.order) - parseInt(b.order));
+			singleEventSorted = orderBy(singleMarket.event, ['order']);
 			marketDataSorted.push({...singleMarket, event: singleEventSorted})
 		})
 		return marketDataSorted
