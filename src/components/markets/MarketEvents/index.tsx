@@ -4,6 +4,8 @@ import clsx from 'clsx';
 // Styles
 import { BetWrap } from './style';
 
+import Event from '../Event'
+
 interface EventObj {
 	order: string,
 	id: number,
@@ -27,10 +29,7 @@ const MarketEvents = ({market}: Props) => {
 		<BetWrap className={clsx(market.col_count === 3 ? 'col-3' : 'col-2')}>
 			<div className="col-bet">
 				{ market.event.map((event: EventObj) => (
-					<div key={event.id} className="col-item">
-						<p className="data-name">{ event.name }</p>
-						<p className="bet-price">{ event.price }</p>
-					</div>
+					<Event key={event.id} event={event} />
 				))}
 			</div>
 		</BetWrap>
