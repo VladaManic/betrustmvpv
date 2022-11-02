@@ -1,6 +1,7 @@
 import React from 'react'
 import { observer } from "mobx-react"
 import store from '../../store/store'
+import { orderBy } from 'lodash';
 
 import Breadcrumb from '../../components/intro/Breadcrumb'
 import Intro from '../../layout/Intro'
@@ -13,7 +14,7 @@ const InPlay = () => {
 	}
 	const currentGroup = store.sportData[0].region[0].competition[0].game[0].market
 	//Sort markets before setting them to mobX
-	const currentGroupSorted = currentGroup.slice().sort((a: MarketObj, b: MarketObj) => parseInt(a.id) - parseInt(b.id));
+	const currentGroupSorted = orderBy(currentGroup, ['group_order', 'order']);
 	store.addGroup(currentGroupSorted)
 
 	return (
