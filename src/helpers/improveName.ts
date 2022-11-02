@@ -4,11 +4,10 @@ import store from '../store/store'
 // Types
 import { IReplacement } from '../types/interfaces';
 
-const improveName = (name: string) => {
+const improveName = (name: string, market: boolean) => {
 	let replacmentName = '' as string;
 	const team1Name = store.getTeam1Name();
 	const team2Name = store.getTeam2Name();
-	console.log(team1Name);
 
 	const replacement = {
 		'Team 1': team1Name,
@@ -27,7 +26,16 @@ const improveName = (name: string) => {
 		Away: team2Name,
 	} as IReplacement;
 
-	if (Object.hasOwn(replacement, name)) {
+	if(market){
+		const re = new RegExp(Object.keys(replacement).join('|'), 'gi');
+		const matches = name.match(re);
+		if (matches) {
+			const matchedKey = replacement[matches[0]];
+			replacmentName = name.replace(matches[0], matchedKey);
+		} else {
+			replacmentName = name;
+		}
+	} else if (Object.hasOwn(replacement, name)) {
 		replacmentName = replacement[name];
 	} else {
 		replacmentName = name;

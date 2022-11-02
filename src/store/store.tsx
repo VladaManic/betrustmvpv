@@ -67,9 +67,10 @@ class Store {
 			const eventsSorted = orderBy(singleMarket.event, ['order']);
 			let eventsData: EventObj[] = []
 			eventsSorted.forEach(function(singleEvent: EventObj) {
-				eventsData.push({...singleEvent, name: improveName(singleEvent.name)})
+				// Improve names for events
+				eventsData.push({...singleEvent, name: improveName(singleEvent.name, false)})
 			})
-			marketDataSorted.push({...singleMarket, event: eventsData})
+			marketDataSorted.push({...singleMarket, event: eventsData, name: improveName(singleMarket.name, true)})
 		})
 		return marketDataSorted
 	}
