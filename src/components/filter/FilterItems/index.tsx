@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { observer } from "mobx-react"
 import store from '../../../store/store'
 import { orderBy } from 'lodash';
+import clsx from 'clsx';
 
 // Styles
 import { FilterInner, FilterItem } from './style';
@@ -61,7 +62,7 @@ const FilterItems = () => {
 		<FilterInner>
 			{ groupObject.map((singleGroup: GroupObj) => (
 				<FilterItem key={ singleGroup.id }>
-					<button className={ activeClass === singleGroup.name ? 'active' : ''} name={ singleGroup.name } onClick={clickHandler}>{ singleGroup.name } ({ singleGroup.count })</button>
+					<button className={clsx(activeClass === singleGroup.name ? 'active' : '')} name={ singleGroup.name } onClick={clickHandler}>{ singleGroup.name } ({ singleGroup.count })</button>
 				</FilterItem> 
 			))}
 		</FilterInner>
