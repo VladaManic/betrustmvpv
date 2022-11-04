@@ -13,14 +13,14 @@ import MyBets from './pages/MyBets'
 import PreMatch from './pages/PreMatch/PreMatch'
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(true);
+  const loading = store.getLoading();
 
   const fetchData = () => {
     fetch("http://localhost:4000/sport")
       .then((response) => response.json())
       .then((data) => {
 				store.addData(data);
-        setLoading(false)
+        store.setLoading(false)
       })
       .catch((error) => {
         console.log(error);

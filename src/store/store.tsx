@@ -8,9 +8,14 @@ import { GroupObj, MarketObj, EventObj } from '../types/interfaces';
 class Store {
 	private sportData: any[] = [];
 	private currentGroup: any[] = [];
+	private loading: boolean = true;
 
 	constructor(){
 		makeAutoObservable(this)
+	}
+
+	setLoading = (loading: boolean) => {
+		this.loading = loading;
 	}
 
 	addData = (data: {}[]) => {
@@ -19,7 +24,11 @@ class Store {
 
 	addGroup = (data: {}[]) => {
 		this.currentGroup = data;
-	} 
+	}
+
+	getLoading = () => {
+		return this.loading;
+	}
 
 	getAllMarkets = () => {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market;
