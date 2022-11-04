@@ -55,9 +55,9 @@ class Store {
 	//For filter
 	getGroupsArr = () => {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
-		let groupArray: any[] = []
+		const groupArray: any[] = []
 		let groupCount: number
-		let finalArray: GroupObj[] = [
+		const finalArray: GroupObj[] = [
 			{
 				id: 0,
 				name: 'All', 
@@ -89,11 +89,11 @@ class Store {
 
 	//Sort events in markets and improving names before displaying
 	getCurrentSorted = (marketData: MarketObj[]) => {
-		let marketDataSorted: MarketObj[] = []
+		const marketDataSorted: MarketObj[] = []
 		marketData.forEach(function(singleMarket: MarketObj) {
 			// Sort events
 			const eventsSorted = orderBy(singleMarket.event, ['order']);
-			let eventsData: EventObj[] = []
+			const eventsData: EventObj[] = []
 			eventsSorted.forEach(function(singleEvent: EventObj) {
 				// Improve names for events
 				eventsData.push({...singleEvent, name: improveName(singleEvent.name, false)})
