@@ -9,10 +9,11 @@ import Filter from '../../layout/Filter'
 import Markets from '../../layout/Markets'
 
 const InPlay = () => {
-	const currentGroup = store.allMarkets;
+	const firstGroup = store.allMarkets;
 	//Sort markets before setting them to mobX
-	const currentGroupSorted = orderBy(currentGroup, ['group_order', 'order']);
-	store.setGroup(currentGroupSorted)
+	const firstGroupSorted = orderBy(firstGroup, ['group_order', 'order']);
+	store.setCurrentGroup(firstGroupSorted)
+	store.setCountArr(firstGroup);
 
 	return (
 		<div>

@@ -19,16 +19,17 @@ const FilterItems = () => {
 		e.preventDefault();
     const button: HTMLButtonElement = e.currentTarget;
 		setActiveClass(button.name)
+		store.setCurrentGroupName(button.name);
 		if(button.name === 'All'){
 			const currentData = game.market
 			//Sort markets before setting them to mobX
 			const currentDataSorted = orderBy(currentData, ['group_order', 'order']);
-			store.setGroup(currentDataSorted)
+			store.setCurrentGroup(currentDataSorted)
 		} else {
-			const currentData = store.getGroup(button.name)
+			const currentData = store.group
 			//Sort markets before setting them to mobX
 			const currentDataSorted = orderBy(currentData, ['order']);
-			store.setGroup(currentDataSorted)
+			store.setCurrentGroup(currentDataSorted)
 		}
 	}
 

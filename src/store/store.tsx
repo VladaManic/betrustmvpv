@@ -10,6 +10,8 @@ class Store {
 	private errorMsg: string = '';
 	private sportData: any[] = [];
 	private currentGroup: any[] = [];
+	private currentGroupName: string = 'All';
+	private countArr: any = [];
 
 	constructor(){
 		makeAutoObservable(this)
@@ -27,8 +29,26 @@ class Store {
 		this.sportData = data;
 	} 
 
-	setGroup = (data: {}[]) => {
+	setCurrentGroup = (data: {}[]) => {
 		this.currentGroup = data;
+	}
+
+	setCurrentGroupName = (name: string) => {
+		this.currentGroupName = name;
+	}
+
+	setCountArr = (data: {}[]) => {
+		const groupArray: string[] = [];
+		data.forEach(function(singleMarket: any) {
+			groupArray.push(singleMarket.group_name)
+		})
+		const uniqueArray = groupArray.filter((item, i, ar) => ar.indexOf(item) === i);
+		const countArray: any = [];
+		uniqueArray.forEach(function(marketName: string) {
+			const count = data.filter((market: any) => market.group_name === marketName).length;
+			countArray.push({marketName: marketName, count: count});
+		})
+		this.countArr = countArray;
 	}
 
 	get loading() {
@@ -55,22 +75,19 @@ class Store {
 		return store.sportData[0].region[0].competition[0].name;
 	}
 
-	get currGroup() {
-		return this.currentGroup;
-	}
-
 	//Getting markets only for specific group
-	getGroup = (marketName: string) => {
+	get group () {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
-		const marketData = markets.filter((singleMarket: MarketObj) => singleMarket.group_name === marketName)
+		const marketData = markets.filter((singleMarket: MarketObj) => singleMarket.group_name === this.currentGroupName)
 		return marketData
 	}
 
 	//For filter
 	get groupsArr() {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
+		const countArray = this.countArr;
 		const groupArray: any[] = []
-		let groupCount: number
+		let groupCount: number = 0;
 		const finalArray: GroupObj[] = [
 			{
 				id: 0,
@@ -80,7 +97,11 @@ class Store {
 		]
 		//Get data for every group
 		markets.forEach(function(singleMarket: MarketObj) {
-			groupCount = store.getGroup(singleMarket.group_name).length
+			countArray.forEach(function(pair: any){
+				if(pair.marketName === singleMarket.group_name){
+					groupCount = pair.count;
+				}
+			})
 			groupArray.push({id: singleMarket.group_id, name: singleMarket.group_name, count: groupCount})
 		})
 		//Get only unique objects for groups
