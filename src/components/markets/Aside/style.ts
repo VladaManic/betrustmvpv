@@ -9,7 +9,7 @@ export const AsideWrap = styled.div`
     border-radius: 10px;
 `;
 
-export const AsideInner = styled.div`
+export const AsideRowWrap = styled.div`
     display: flex;
 `;
 

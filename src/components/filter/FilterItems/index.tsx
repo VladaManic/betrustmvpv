@@ -5,7 +5,7 @@ import { orderBy } from 'lodash';
 import clsx from 'clsx';
 
 // Styles
-import { FilterInner, FilterItem } from './style';
+import { FilterWrap, FilterItemWrap } from './style';
 
 // Types
 import { GroupObj } from '../../../types/interfaces';
@@ -59,13 +59,13 @@ const FilterItems = () => {
 	}
 
 	return (
-		<FilterInner>
+		<FilterWrap>
 			{ groupObject.map((singleGroup: GroupObj) => (
-				<FilterItem key={ singleGroup.id }>
+				<FilterItemWrap key={ singleGroup.id }>
 					<button className={clsx(activeClass === singleGroup.name ? 'active' : '')} name={ singleGroup.name } onClick={clickHandler}>{ singleGroup.name } ({ singleGroup.count })</button>
-				</FilterItem> 
+				</FilterItemWrap> 
 			))}
-		</FilterInner>
+		</FilterWrap>
 	)
 }
 

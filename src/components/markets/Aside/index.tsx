@@ -1,39 +1,39 @@
 import React from 'react'
 
 // Styles
-import { AsideWrap, AsideInner, BigDiv, SmallDiv } from './style';
+import { AsideWrap, AsideRowWrap, BigDiv, SmallDiv } from './style';
 
 const Aside = () => {
 	return (
 		<AsideWrap>
-			<AsideInner>
+			<AsideRowWrap>
 				<BigDiv></BigDiv>
 				<div>
 					<SmallDiv></SmallDiv>
 					<SmallDiv></SmallDiv>
 				</div>
-			</AsideInner>
-			<AsideInner>
+			</AsideRowWrap>
+			<AsideRowWrap>
 				<BigDiv></BigDiv>
 				<div>
 					<SmallDiv></SmallDiv>
 					<SmallDiv></SmallDiv>
 				</div>
-			</AsideInner>
-			<AsideInner>
+			</AsideRowWrap>
+			<AsideRowWrap>
 				<BigDiv></BigDiv>
 				<div>
 					<SmallDiv></SmallDiv>
 					<SmallDiv></SmallDiv>
 				</div>
-			</AsideInner>
-			<AsideInner>
+			</AsideRowWrap>
+			<AsideRowWrap>
 				<BigDiv></BigDiv>
 				<div>
 					<SmallDiv></SmallDiv>
 					<SmallDiv></SmallDiv>
 				</div>
-			</AsideInner>
+			</AsideRowWrap>
 		</AsideWrap>
 	)
 }

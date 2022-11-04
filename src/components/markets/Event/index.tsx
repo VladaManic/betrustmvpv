@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Styles
-import { ColItem } from './style'
+import { ColItemWrap } from './style'
 
 // Types
 import { EventObj  } from '../../../types/interfaces';
@@ -12,10 +12,10 @@ interface Props {
 
 const Event = ({event}: Props) => {
 	return (
-		<ColItem>
+		<ColItemWrap>
 			<p className="data-name">{ event.name }</p>
 			<p className="bet-price">{ event.price }</p>
-		</ColItem>
+		</ColItemWrap>
 	)
 }
 

@@ -1,7 +1,7 @@
 import styled, {  } from 'styled-components';
 import { color } from '../../../shared/styles/variables'
 
-export const FilterInner = styled.div`
+export const FilterWrap = styled.div`
     display: flex;
     justify-content: space-between;
     flex: 1;
@@ -10,7 +10,7 @@ export const FilterInner = styled.div`
     margin-left: 13px;
 `;
 
-export const FilterItem = styled.div`
+export const FilterItemWrap = styled.div`
     display: flex;
     flex-basis: 100%;
     justify-content: center;

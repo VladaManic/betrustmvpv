@@ -2,10 +2,10 @@ import React from 'react'
 import { observer } from "mobx-react"
 import store from '../../../store/store'
 
-import MarketWrap from '../MarketWrap'
+import Market from '../Market'
 
 // Styles
-import { AllWrapper } from './style';
+import { AllWrap } from './style';
 
 // Types
 import { MarketObj  } from '../../../types/interfaces';
@@ -16,11 +16,11 @@ const AllMarkets = () => {
 	const marketDataSorted = store.getCurrentSorted(marketData)
 
 	return (
-		<AllWrapper>
+		<AllWrap>
 			{ marketDataSorted.map((singleMarket: MarketObj, index: number) => (
-				<MarketWrap key={singleMarket.id} singleMarket={singleMarket} index={index} />
+				<Market key={singleMarket.id} singleMarket={singleMarket} index={index} />
 			))}
-		</AllWrapper>
+		</AllWrap>
 	)
 }
 

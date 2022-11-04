@@ -15,7 +15,7 @@ interface Props {
 	index: number
 }
 
-const MarketWrap = ({singleMarket, index}: Props) => {
+const Market = ({singleMarket, index}: Props) => {
 	const {opened, setOpened} = useAccordion(false, index);
 
 	return (
@@ -26,4 +26,4 @@ const MarketWrap = ({singleMarket, index}: Props) => {
 	)
 }
 
-export default MarketWrap
+export default Market

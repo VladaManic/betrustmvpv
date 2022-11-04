@@ -1,7 +1,7 @@
 import styled, {  } from 'styled-components';
 import { color } from '../../../shared/styles/variables';
 
-export const ColItem = styled.div`
+export const ColItemWrap = styled.div`
 	display: flex;
 	justify-content: space-between;
 	box-sizing: border-box;
