@@ -6,10 +6,10 @@ import improveName from '../helpers/improveName';
 import { GroupObj, MarketObj, EventObj } from '../types/interfaces';
 
 class Store {
-	private sportData: any[] = [];
-	private currentGroup: any[] = [];
 	private loading: boolean = true;
 	private errorMsg: string = '';
+	private sportData: any[] = [];
+	private currentGroup: any[] = [];
 
 	constructor(){
 		makeAutoObservable(this)
@@ -23,11 +23,11 @@ class Store {
 		this.errorMsg = errorMsg;
 	}
 
-	addData = (data: {}[]) => {
+	setData = (data: {}[]) => {
 		this.sportData = data;
 	} 
 
-	addGroup = (data: {}[]) => {
+	setGroup = (data: {}[]) => {
 		this.currentGroup = data;
 	}
 

@@ -24,7 +24,7 @@ function App() {
     fetch("http://localhost:4000/sport")
       .then((response) => response.json())
       .then((data) => {
-				store.addData(data);
+				store.setData(data);
         store.setLoading(false)
       })
       .catch(error => handleError(error));

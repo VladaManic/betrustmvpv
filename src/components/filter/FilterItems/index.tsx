@@ -14,32 +14,6 @@ const FilterItems = () => {
 	const [activeClass, setActiveClass] = useState<String | undefined>('All')
 	const game = store.getGameData();
 	const groupObject: GroupObj[] = store.getGroupsArr()
-	// const groupObject: Groups[] = [{
-	// 		id: 1,
-	// 		name: 'All', 
-	// 		count: game.markets_count,
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		name: 'Match',
-	// 		count: store.getGroup('Match').length,
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		name: 'Handicaps',
-	// 		count: store.getGroup('Handicaps').length,
-	// 	},
-	// 	{
-	// 		id: 4,
-	// 		name: 'Totals',
-	// 		count: store.getGroup('Totals').length,
-	// 	},
-	// 	{
-	// 		id: 5,
-	// 		name: 'Combos',
-	// 		count: store.getGroup('Combos').length,
-	// 	}
-	// ]
 
 	const clickHandler = (e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) => {
 		e.preventDefault();
@@ -49,12 +23,12 @@ const FilterItems = () => {
 			const currentData = game.market
 			//Sort markets before setting them to mobX
 			const currentDataSorted = orderBy(currentData, ['group_order', 'order']);
-			store.addGroup(currentDataSorted)
+			store.setGroup(currentDataSorted)
 		} else {
 			const currentData = store.getGroup(button.name)
 			//Sort markets before setting them to mobX
 			const currentDataSorted = orderBy(currentData, ['order']);
-			store.addGroup(currentDataSorted)
+			store.setGroup(currentDataSorted)
 		}
 	}
 

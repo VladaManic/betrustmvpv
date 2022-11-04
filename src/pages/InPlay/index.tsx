@@ -12,7 +12,7 @@ const InPlay = () => {
 	const currentGroup = store.getAllMarkets();
 	//Sort markets before setting them to mobX
 	const currentGroupSorted = orderBy(currentGroup, ['group_order', 'order']);
-	store.addGroup(currentGroupSorted)
+	store.setGroup(currentGroupSorted)
 
 	return (
 		<div>
