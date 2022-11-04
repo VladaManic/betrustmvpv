@@ -9,6 +9,7 @@ class Store {
 	private sportData: any[] = [];
 	private currentGroup: any[] = [];
 	private loading: boolean = true;
+	private errorMsg: string = '';
 
 	constructor(){
 		makeAutoObservable(this)
@@ -16,6 +17,10 @@ class Store {
 
 	setLoading = (loading: boolean) => {
 		this.loading = loading;
+	}
+
+	setError = (errorMsg: string) => {
+		this.errorMsg = errorMsg;
 	}
 
 	addData = (data: {}[]) => {
@@ -30,24 +35,24 @@ class Store {
 		return this.loading;
 	}
 
+	getError = () => {
+		return this.errorMsg;
+	}
+
 	getAllMarkets = () => {
-		const markets = this.sportData[0].region[0].competition[0].game[0].market;
-		return markets;
+		return this.sportData[0].region[0].competition[0].game[0].market;
 	}
 
 	getGameData = () => {
-		const game = this.sportData[0].region[0].competition[0].game[0];
-		return game;
+		return this.sportData[0].region[0].competition[0].game[0];
 	}
 
 	getRegion = () => {
-		const region = this.sportData[0].region[0].name;
-		return region;
+		return this.sportData[0].region[0].name;
 	}
 
 	getCompetiotion = () => {
-		const competition = store.sportData[0].region[0].competition[0].name;
-		return competition;
+		return store.sportData[0].region[0].competition[0].name;
 	}
 
 	getCurrentGroup = () => {
@@ -114,13 +119,11 @@ class Store {
 	}
 
 	getTeam1Name = () => {
-		const name = this.sportData[0].region[0].competition[0].game[0].team1_name;
-		return name;
+		return this.sportData[0].region[0].competition[0].game[0].team1_name;
 	}
 
 	getTeam2Name = () => {
-		const name = this.sportData[0].region[0].competition[0].game[0].team2_name;
-		return name;
+		return this.sportData[0].region[0].competition[0].game[0].team2_name;
 	}
 }
 

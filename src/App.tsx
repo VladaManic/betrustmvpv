@@ -15,6 +15,11 @@ import PreMatch from './pages/PreMatch/PreMatch'
 function App() {
   const loading = store.getLoading();
 
+  const handleError = async (error: string) => {
+    store.setError(error)
+    await console.log(store.getError());
+  }
+
   const fetchData = () => {
     fetch("http://localhost:4000/sport")
       .then((response) => response.json())
@@ -22,9 +27,7 @@ function App() {
 				store.addData(data);
         store.setLoading(false)
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(error => handleError(error));
   };
 	useEffect(() => {
     fetchData();
