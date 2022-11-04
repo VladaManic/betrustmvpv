@@ -12,7 +12,7 @@ const League = () => {
 	return (
 		<LeagueWrap>
 			<Flag src={ flag } alt="Flag" />
-			<p>{ store.getRegion() } / { store.getCompetiotion() }</p>
+			<p>{ store.region } / { store.competiotion }</p>
 		</LeagueWrap>
 	)
 }

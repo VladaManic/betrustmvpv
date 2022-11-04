@@ -12,8 +12,8 @@ import { GroupObj } from '../../../types/interfaces';
 
 const FilterItems = () => {
 	const [activeClass, setActiveClass] = useState<String | undefined>('All')
-	const game = store.getGameData();
-	const groupObject: GroupObj[] = store.getGroupsArr()
+	const game = store.gameData;
+	const groupObject: GroupObj[] = store.groupsArr
 
 	const clickHandler = (e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) => {
 		e.preventDefault();

@@ -5,8 +5,8 @@ import { IReplacement } from '../types/interfaces';
 
 const improveName = (name: string, market: boolean) => {
 	let replacmentName = '' as string;
-	const team1Name = store.getTeam1Name();
-	const team2Name = store.getTeam2Name();
+	const team1Name = store.team1Name;
+	const team2Name = store.team2Name;
 
 	const replacement = {
 		'Team 1': team1Name,

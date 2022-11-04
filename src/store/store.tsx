@@ -6,7 +6,7 @@ import improveName from '../helpers/improveName';
 import { GroupObj, MarketObj, EventObj } from '../types/interfaces';
 
 class Store {
-	private loading: boolean = true;
+	private loadingState: boolean = true;
 	private errorMsg: string = '';
 	private sportData: any[] = [];
 	private currentGroup: any[] = [];
@@ -16,7 +16,7 @@ class Store {
 	}
 
 	setLoading = (loading: boolean) => {
-		this.loading = loading;
+		this.loadingState = loading;
 	}
 
 	setError = (errorMsg: string) => {
@@ -31,31 +31,31 @@ class Store {
 		this.currentGroup = data;
 	}
 
-	getLoading = () => {
-		return this.loading;
+	get loading() {
+		return this.loadingState;
 	}
 
-	getError = () => {
+	get error() {
 		return this.errorMsg;
 	}
 
-	getAllMarkets = () => {
+	get allMarkets() {
 		return this.sportData[0].region[0].competition[0].game[0].market;
 	}
 
-	getGameData = () => {
+	get gameData() {
 		return this.sportData[0].region[0].competition[0].game[0];
 	}
 
-	getRegion = () => {
+	get region() {
 		return this.sportData[0].region[0].name;
 	}
 
-	getCompetiotion = () => {
+	get competiotion() {
 		return store.sportData[0].region[0].competition[0].name;
 	}
 
-	getCurrentGroup = () => {
+	get currGroup() {
 		return this.currentGroup;
 	}
 
@@ -67,7 +67,7 @@ class Store {
 	}
 
 	//For filter
-	getGroupsArr = () => {
+	get groupsArr() {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
 		const groupArray: any[] = []
 		let groupCount: number
@@ -102,9 +102,9 @@ class Store {
 	}
 
 	//Sort events in markets and improving names before displaying
-	getCurrentSorted = (marketData: MarketObj[]) => {
+	get currentSorted() {
 		const marketDataSorted: MarketObj[] = []
-		marketData.forEach(function(singleMarket: MarketObj) {
+		this.currentGroup.forEach(function(singleMarket: MarketObj) {
 			// Sort events
 			const eventsSorted = orderBy(singleMarket.event, ['order']);
 			const eventsData: EventObj[] = []
@@ -118,11 +118,11 @@ class Store {
 		return marketDataSorted
 	}
 
-	getTeam1Name = () => {
+	get team1Name() {
 		return this.sportData[0].region[0].competition[0].game[0].team1_name;
 	}
 
-	getTeam2Name = () => {
+	get team2Name() {
 		return this.sportData[0].region[0].competition[0].game[0].team2_name;
 	}
 }

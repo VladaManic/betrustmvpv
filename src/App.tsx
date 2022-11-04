@@ -13,11 +13,11 @@ import MyBets from './pages/MyBets'
 import PreMatch from './pages/PreMatch/PreMatch'
 
 function App() {
-  const loading = store.getLoading();
+  const loading = store.loading;
 
   const handleError = async (error: string) => {
     store.setError(error)
-    await console.log(store.getError());
+    await console.log(store.error);
   }
 
   const fetchData = () => {
