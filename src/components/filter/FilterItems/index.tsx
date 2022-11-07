@@ -24,11 +24,13 @@ const FilterItems = () => {
 			const currentData = game.market
 			//Sort markets before setting them to mobX
 			const currentDataSorted = orderBy(currentData, ['group_order', 'order']);
+			//Setting selected group markets to mobX
 			store.setCurrentGroup(currentDataSorted)
 		} else {
 			const currentData = store.group
 			//Sort markets before setting them to mobX
 			const currentDataSorted = orderBy(currentData, ['order']);
+			//Setting selected group markets to mobX
 			store.setCurrentGroup(currentDataSorted)
 		}
 	}

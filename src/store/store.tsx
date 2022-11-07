@@ -82,7 +82,7 @@ class Store {
 		return marketData
 	}
 
-	//For filter
+	//Making array with groups data for filter
 	get groupsArr() {
 		const markets = this.sportData[0].region[0].competition[0].game[0].market
 		const countArray = this.countArr;
