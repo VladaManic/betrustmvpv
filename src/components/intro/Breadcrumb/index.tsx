@@ -1,18 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import UpdateBtn from '../UpdateBtn'
+
 // Assets
 import arrowLeft from '../../../assets/img/arrow-left.svg';
 
 // Styles
-import { BreadcrumbWrap, ArrowLeft } from './style';
+import { BreadcrumbWrap, LinkWrap, ArrowLeft } from './style';
 
 const Breadcrumb = () => {
 	return (
 		<Link to="/" className="breadcrumb-link">
 			<BreadcrumbWrap>
-				<ArrowLeft src={ arrowLeft } alt="Arrow left" />
-				<p>In Play - Football</p>
+				<LinkWrap>
+					<ArrowLeft src={ arrowLeft } alt="Arrow left" />
+					<p>In Play - Football</p>
+				</LinkWrap>
+				<UpdateBtn /> 
 			</BreadcrumbWrap>
 		</Link>
 	)

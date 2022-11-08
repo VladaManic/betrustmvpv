@@ -3,9 +3,12 @@ import { color } from '../../../shared/styles/variables'
 
 export const BreadcrumbWrap = styled.div`
     display: flex;
-    padding-top: 16px;
-    padding-left: 30px;
-    padding-bottom: 16px;
+    justify-content: space-between;
+    padding: 16px 30px;
+`;
+
+export const LinkWrap = styled.div`
+    display: flex;
 
     p {
         font-size: 14px;
@@ -18,4 +21,5 @@ export const ArrowLeft = styled.img`
     display: inline-block;
     width: 6px;
     margin-right: 7px;
+    margin-bottom: 3px;
 `;
