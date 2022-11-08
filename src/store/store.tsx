@@ -52,15 +52,7 @@ class Store {
 	}
 
 	setUpdateData = () => {
-		const allData = this.sportData;
-		const markets = allData[0].region[0].competition[0].game[0].market;
-		const restMarkets = markets.filter((market: MarketObj) => market.id !== 902133688)
-		const marketForUpdate = markets.filter((market: MarketObj) => market.id === 902133688)
-		const restEvents = marketForUpdate[0].event.filter((event: EventObj) => event.id !== 2794029809)
-		const eventForUpdate = marketForUpdate[0].event.filter((event: EventObj) => event.id === 2794029809)
-		restEvents.push({...eventForUpdate[0], price: 2.9})
-		restMarkets.push({...marketForUpdate[0], event: restEvents})
-		this.sportData[0].region[0].competition[0].game[0].market = restMarkets
+		this.sportData[0].region[0].competition[0].game[0].market.filter((market: MarketObj) => market.id === 902133688)[0].event.filter((event: EventObj) => event.id === 2794029809)[0].price = 2.9
 	}
 
 	get loading() {
