@@ -75,8 +75,12 @@ class Store {
 		return this.sportData[0].region[0].name;
 	}
 
-	get competiotion() {
-		return store.sportData[0].region[0].competition[0].name;
+	get competition() {
+		return this.sportData[0].region[0].competition[0].name;
+	}
+
+	get groupName() {
+		return this.currentGroupName;
 	}
 
 	//Getting markets only for specific group

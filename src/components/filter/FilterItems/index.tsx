@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { observer } from "mobx-react"
 import store from '../../../store/store'
 import { orderBy } from 'lodash';
-import clsx from 'clsx';
+
+import FilterBtn from '../FilterBtn'
 
 // Styles
 import { FilterWrap, FilterItemWrap } from './style';
@@ -11,17 +12,15 @@ import { FilterWrap, FilterItemWrap } from './style';
 import { GroupObj } from '../../../types/interfaces';
 
 const FilterItems = () => {
-	const [activeClass, setActiveClass] = useState<String | undefined>('All')
-	const game = store.gameData;
 	const groupObject: GroupObj[] = store.groupsArr
 
 	const clickHandler = (e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-    const button: HTMLButtonElement = e.currentTarget;
-		setActiveClass(button.name)
+		const button: HTMLButtonElement = e.currentTarget;
+		//setActiveClass(button.name)
 		store.setCurrentGroupName(button.name);
 		if(button.name === 'All'){
-			const currentData = game.market
+			const currentData = store.allMarkets;
 			//Sort markets before setting them to mobX
 			const currentDataSorted = orderBy(currentData, ['group_order', 'order']);
 			//Setting selected group markets to mobX
@@ -39,7 +38,7 @@ const FilterItems = () => {
 		<FilterWrap>
 			{ groupObject.map((singleGroup: GroupObj) => (
 				<FilterItemWrap key={ singleGroup.id }>
-					<button className={clsx(activeClass === singleGroup.name ? 'active' : '')} name={ singleGroup.name } onClick={clickHandler}>{ singleGroup.name } ({ singleGroup.count })</button>
+					<FilterBtn singleGroup={singleGroup} onClick={clickHandler} />
 				</FilterItemWrap> 
 			))}
 		</FilterWrap>
