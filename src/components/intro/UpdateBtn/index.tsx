@@ -5,7 +5,8 @@ import store from '../../../store/store'
 // Styles
 import { BtnWrap } from './style';
 
-const clickHandler = () => {
+const clickHandler = (e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) => {
+	e.preventDefault()
 	store.setUpdateData();
 }
 
