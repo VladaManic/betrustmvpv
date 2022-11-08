@@ -7,7 +7,7 @@ export interface GroupObj {
 export interface MarketObj {
 	id: number,
 	col_count: number,
-	group_id: number,
+	group_order: number,
 	name: string,
 	group_name: string,
 	event: EventObj[]

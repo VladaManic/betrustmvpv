@@ -106,7 +106,7 @@ class Store {
 					groupCount = pair.count;
 				}
 			})
-			groupArray.push({id: singleMarket.group_id, name: singleMarket.group_name, count: groupCount})
+			groupArray.push({id: singleMarket.group_order, name: singleMarket.group_name, count: groupCount})
 		})
 		//Get only unique objects for groups
 		const uniqueArray = groupArray.filter((value: any, index: number, self: any) =>
