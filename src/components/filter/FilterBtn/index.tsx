@@ -3,6 +3,9 @@ import { observer } from "mobx-react"
 import store from '../../../store/store'
 import clsx from 'clsx';
 
+// Styles
+import { FilterItemWrap } from './style';
+
 // Types
 import { GroupObj  } from '../../../types/interfaces';
 
@@ -13,7 +16,9 @@ interface Props {
 
 const FilterBtn = ({singleGroup, onClick}: Props) => {
 	return (
-		<button className={clsx(singleGroup.name === store.groupName ? 'active' : '')} name={ singleGroup.name } onClick={onClick}>{ singleGroup.name } ({ singleGroup.count })</button>
+		<FilterItemWrap>
+			<button className={clsx(singleGroup.name === store.groupName ? 'active' : '')} name={ singleGroup.name } onClick={onClick}>{ singleGroup.name } ({ singleGroup.count })</button>
+		</FilterItemWrap>
 	)
 }
 

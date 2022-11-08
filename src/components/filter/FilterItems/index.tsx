@@ -6,7 +6,7 @@ import { orderBy } from 'lodash';
 import FilterBtn from '../FilterBtn'
 
 // Styles
-import { FilterWrap, FilterItemWrap } from './style';
+import { FilterWrap } from './style';
 
 // Types
 import { GroupObj } from '../../../types/interfaces';
@@ -17,7 +17,6 @@ const FilterItems = () => {
 	const clickHandler = (e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) => {
 		e.preventDefault();
 		const button: HTMLButtonElement = e.currentTarget;
-		//setActiveClass(button.name)
 		store.setCurrentGroupName(button.name);
 		if(button.name === 'All'){
 			const currentData = store.allMarkets;
@@ -37,9 +36,7 @@ const FilterItems = () => {
 	return (
 		<FilterWrap>
 			{ groupObject.map((singleGroup: GroupObj) => (
-				<FilterItemWrap key={ singleGroup.id }>
-					<FilterBtn singleGroup={singleGroup} onClick={clickHandler} />
-				</FilterItemWrap> 
+				<FilterBtn key={ singleGroup.id } singleGroup={singleGroup} onClick={clickHandler} />
 			))}
 		</FilterWrap>
 	)
