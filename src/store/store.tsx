@@ -52,7 +52,8 @@ class Store {
 	}
 
 	setUpdateData = () => {
-		this.sportData[0].region[0].competition[0].game[0].market.filter((market: MarketObj) => market.id === 902133688)[0].event.filter((event: EventObj) => event.id === 2794029809)[0].price = 2.9
+		//this.sportData[0].region[0].competition[0].game[0].market.filter((market: MarketObj) => market.id === 902133688)[0].event.filter((event: EventObj) => event.id === 2794029809)[0].price = 2.9
+		this.sportData[0].region[0].competition[0].game[0].market[13].event[0].price = 2.9
 	}
 
 	get loading() {
